@@ -1,9 +1,16 @@
 const theme = {
-  maxWidth: 1270,
+  maxWidth: 1280,
   spacing: 15,
+  margin: '15px 55px 15px 55px',
   colors: {
     brightest: '#ffffff',
+    brighter: '#F7F7F7',
     darkest: '#000000',
+    darker: '#363636',
+    primary: '#B4D6BD',
+    primaryDarker: '#87BC95',
+    secondary: '#D6B4C0',
+    secondaryDarker: '#B78597',
   },
   fontWeight: {
     regular: 400,
@@ -13,7 +20,7 @@ const theme = {
   },
   primaryFontFamily: 'Montserrat',
   breakpoints: {
-    large: 1050,
+    large: 1280,
     medium: 768,
     small: 500,
   },
