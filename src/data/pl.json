@@ -1,6 +1,20 @@
 {
   "shared": {
     "language": "pl",
+    "header": {
+      "companyLogoAlt": "fototech logo"
+    },
+    "footer": {
+      "termsOfUse": {
+        "label": "Regulamin",
+        "url": "/"
+      },
+      "siteMap": {
+        "label": "Mapa strony",
+        "url": "/"
+      },
+      "allRightReservedInfo": "Wszelkie prawa zastrzeżone © Fototech 2018"
+    },
     "navigation": [
       { "id": 1, "label": "Strona główna", "slug": "/" },
       {
@@ -8,9 +22,9 @@
         "label": "Usługi",
         "slug": "/uslugi",
         "sections": [
-          { "id": 21, "label": "Naprawa", "slug": "/naprawa" },
-          { "id": 22, "label": "Czyszczenie", "slug": "/czyszczenie" },
-          { "id": 23, "label": "Kalibracja", "slug": "/kalibracja" }
+          { "id": 21, "label": "Naprawa", "slug": "/uslugi/naprawa" },
+          { "id": 22, "label": "Czyszczenie", "slug": "/uslugi/czyszczenie" },
+          { "id": 23, "label": "Kalibracja", "slug": "/uslugi/kalibracja" }
         ]
       },
       {
@@ -37,9 +51,32 @@
           { "id": 62, "label": "Warszawa", "slug": "/kontakt/warszawa" }
         ]
       }
-    ]
+    ],
+    "contactDetails": {
+      "warszawa": {
+        "label": "Fototech Warszawa",
+        "street": "ul. Sabały 58",
+        "postalCode": "02-174",
+        "city": "Warszawa",
+        "phone": "+48 (22) 243 02 10",
+        "email": "warszawa@fotonaprawa.pl",
+        "showOnMapLabel": "Pokaż na mapie"
+      },
+      "krakow": {
+        "label": "Fototech Kraków",
+        "street": "ul. Jana Długosza 13",
+        "postalCode": "30-512",
+        "city": "Kraków",
+        "phone": "+48 669 577 755",
+        "email": "krakow@fotonaprawa.pl",
+        "showOnMapLabel": "Pokaż na mapie"
+      }
+    },
+    "socialMediaUrls": {
+      "facebook": "https://www.facebook.com/FototechSerwis",
+      "googlePlus": "https://plus.google.com/+FotonaprawaPL",
+      "youTube": "https://www.youtube.com/user/serwisFOTOTECH"
+    }
   },
-  "header": {
-    "companyLogoAlt": "fototech logo"
-  }
+  "home": {}
 }

@@ -22,7 +22,7 @@ export default {
         path: '/',
         component: 'src/scenes/Home',
         getData: async () => ({
-          routeData: contentPL.header,
+          routeData: contentPL.home,
         }),
       },
       {

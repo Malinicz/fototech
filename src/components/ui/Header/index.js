@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouteData, withSiteData } from 'react-static';
+import { withSiteData, withRouteData } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
 
@@ -25,8 +25,9 @@ const HeaderHolder = HeaderBase.extend`
     isOnTop
       ? '0px 5px 5px -5px rgba(0, 0, 0, 0.2)'
       : '0px 3px 5px 0px rgba(0, 0, 0, 0)'};
-  background-color: ${({ theme }) => getRgba(theme.colors.brighter, 0.98)};
-  transition: 0.3s ease box-shadow;
+  background-color: ${({ theme, isOnTop }) =>
+    isOnTop ? getRgba(theme.colors.brightest, 0.98) : theme.colors.brighter};
+  transition: 0.2s ease box-shadow, 0.3s ease-out background-color;
 `;
 
 const CompanyLogo = styled.img`
@@ -59,14 +60,13 @@ class Header extends Component {
     const { isOnTop } = this.state;
     const {
       match: { url },
-      siteData: { navigation },
-      routeData: { companyLogoAlt },
+      siteData: { navigation, header },
     } = this.props;
 
     return (
       <HeaderHolder isOnTop={!isOnTop}>
         <MaxWidthWrapper>
-          <CompanyLogo src={fototechLogo} alt={companyLogoAlt} />
+          <CompanyLogo src={fototechLogo} alt={header.companyLogoAlt} />
           <HeaderNavigation navLinks={navigation} activeLink={url} />
         </MaxWidthWrapper>
       </HeaderHolder>
@@ -76,7 +76,6 @@ class Header extends Component {
 
 Header.propTypes = {
   siteData: object.isRequired,
-  routeData: object.isRequired,
   match: object.isRequired,
 };
 

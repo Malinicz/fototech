@@ -1,3 +1,3 @@
 export { default as Header } from './Header';
 export { Footer } from './Footer';
-export { HeaderNavigation } from './Navigation';
+export { HeaderNavigation, FooterNavigation } from './Navigation';
