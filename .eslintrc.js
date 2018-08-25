@@ -26,5 +26,6 @@ module.exports = {
     'react/sort-comp': OFF,
     'lines-between-class-members': OFF,
     'react/forbid-prop-types': OFF,
+    'no-confusing-arrow': OFF,
   },
 };

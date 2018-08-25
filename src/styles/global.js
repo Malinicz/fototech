@@ -44,7 +44,7 @@ injectGlobal`
     font-weight: ${theme.fontWeight.regular};
     font-size: 16px;
     color: ${theme.colors.darkest};
-    background-color: ${theme.colors.brightest};
+    background-color: ${theme.colors.brighter};
     overflow-x: hidden;
   }
 
@@ -55,10 +55,6 @@ injectGlobal`
   }
 
   a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
     text-decoration: none;
   }
 

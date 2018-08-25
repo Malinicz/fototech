@@ -2,6 +2,7 @@ const theme = {
   maxWidth: 1280,
   spacing: 15,
   margin: '15px 55px 15px 55px',
+  stickyHeaderOffset: 70,
   colors: {
     brightest: '#ffffff',
     brighter: '#F7F7F7',

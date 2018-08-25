@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
+import contentPL from './src/data/pl';
+
 const siteRoot = 'http://serwer11003.lh.pl';
 const stagingSiteRoot = 'http://serwer11003.lh.pl';
 const basePath = 'fototech';
 const stagingBasePath = 'fototech';
+
 export default {
   siteRoot,
   stagingSiteRoot,
   basePath,
   stagingBasePath,
+  getSiteData: async () => ({
+    siteData: contentPL.shared,
+  }),
   getRoutes: async () => {
     return [
       {
         path: '/',
         component: 'src/scenes/Home',
+        getData: async () => ({
+          routeData: contentPL.header,
+        }),
       },
       {
         is404: true,

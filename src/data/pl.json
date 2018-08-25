@@ -1,1 +1,45 @@
-{}
+{
+  "shared": {
+    "language": "pl",
+    "navigation": [
+      { "id": 1, "label": "Strona główna", "slug": "/" },
+      {
+        "id": 2,
+        "label": "Usługi",
+        "slug": "/uslugi",
+        "sections": [
+          { "id": 21, "label": "Naprawa", "slug": "/naprawa" },
+          { "id": 22, "label": "Czyszczenie", "slug": "/czyszczenie" },
+          { "id": 23, "label": "Kalibracja", "slug": "/kalibracja" }
+        ]
+      },
+      {
+        "id": 3,
+        "label": "Jak dostarczyć",
+        "slug": "/jak-dostarczyc",
+        "sections": [
+          { "id": 31, "label": "Pocztą", "slug": "/jak-dostarczyc/poczta" },
+          {
+            "id": 32,
+            "label": "Osobiście",
+            "slug": "/jak-dostarczyc/osobiscie"
+          }
+        ]
+      },
+      { "id": 4, "label": "Sklep", "url": "http://www.fototech-serwis.pl" },
+      { "id": 5, "label": "Blog", "slug": "/blog" },
+      {
+        "id": 6,
+        "label": "Kontakt",
+        "slug": "/kontakt",
+        "sections": [
+          { "id": 61, "label": "Kraków", "slug": "/kontakt/krakow" },
+          { "id": 62, "label": "Warszawa", "slug": "/kontakt/warszawa" }
+        ]
+      }
+    ]
+  },
+  "header": {
+    "companyLogoAlt": "fototech logo"
+  }
+}
