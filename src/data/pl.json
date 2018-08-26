@@ -79,7 +79,9 @@
     }
   },
   "home": {
+    "mainHeading": ["Serwis", "fotograficzny"],
     "linkToVenueLabel": "Sprawdź",
-    "callToActionButtonLabel": "Chcę dostarczyć sprzęt"
+    "callToActionButtonLabel": "Chcę dostarczyć sprzęt",
+    "whatWeFixHeading": "Naprawiamy"
   }
 }

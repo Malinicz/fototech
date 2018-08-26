@@ -6,3 +6,4 @@ export { Paragraph } from './Paragraph';
 export { LinkWrapper } from './LinkWrapper';
 export { MaxWidthWrapper } from './MaxWidthWrapper';
 export { ArrowIcon } from './ArrowIcon';
+export { Card } from './Card';

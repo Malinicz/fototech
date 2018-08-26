@@ -11,10 +11,11 @@ import {
   ArrowIcon,
 } from 'components/ui/base';
 
-const mainPhoto = require('./assets/main-photo.jpg');
+const mainPhoto = require('../assets/main-photo.jpg');
 
 const IntroHolder = Section.extend`
   flex-direction: column;
+  margin-bottom: 50px;
 `;
 
 const HeadingHolder = styled.div`
@@ -111,13 +112,13 @@ export const Intro = withSiteData(
   withRouteData(
     ({
       siteData: { contactDetails },
-      routeData: { linkToVenueLabel, callToActionButtonLabel },
+      routeData: { mainHeading, linkToVenueLabel, callToActionButtonLabel },
     }) => {
       return (
         <IntroHolder>
           <HeadingHolder>
             <Heading>
-              Serwis <Thin>fotograficzny</Thin>
+              {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
             </Heading>
           </HeadingHolder>
           <Row>

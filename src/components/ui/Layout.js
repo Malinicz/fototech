@@ -6,6 +6,8 @@ import { Header, Footer } from 'components/ui';
 
 const MainBase = Section.withComponent('main');
 const Main = MainBase.extend`
+  display: flex;
+  flex-direction: column;
   margin-top: ${({ theme }) => theme.stickyHeaderOffset + 50}px;
   margin-bottom: 100px;
   padding: 0;
