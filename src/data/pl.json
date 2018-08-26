@@ -78,5 +78,8 @@
       "youTube": "https://www.youtube.com/user/serwisFOTOTECH"
     }
   },
-  "home": {}
+  "home": {
+    "linkToVenueLabel": "Sprawdź",
+    "callToActionButtonLabel": "Chcę dostarczyć sprzęt"
+  }
 }

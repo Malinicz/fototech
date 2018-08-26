@@ -4,7 +4,7 @@ import { object } from 'prop-types';
 import styled from 'styles';
 
 import { Section, MaxWidthWrapper } from 'components/ui/base';
-import { HeaderNavigation } from 'components/ui';
+import { HeaderNavigation } from './HeaderNavigation';
 
 import { getRgba } from 'styles/helpers';
 
@@ -18,7 +18,7 @@ const HeaderHolder = HeaderBase.extend`
   left: 0;
   z-index: 50;
   justify-content: center;
-  padding: ${({ theme }) => `0 ${theme.spacing}px 0 ${theme.spacing}px`};
+  padding: 0;
   height: ${({ theme }) => theme.stickyHeaderOffset}px;
   max-width: unset;
   box-shadow: ${({ isOnTop }) =>
@@ -74,8 +74,12 @@ class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  siteData: {},
+};
+
 Header.propTypes = {
-  siteData: object.isRequired,
+  siteData: object,
   match: object.isRequired,
 };
 

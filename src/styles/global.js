@@ -43,7 +43,7 @@ injectGlobal`
     font-style: normal;
     font-weight: ${theme.fontWeight.regular};
     font-size: 16px;
-    color: ${theme.colors.darkest};
+    color: ${theme.colors.darker};
     background-color: ${theme.colors.brighter};
     overflow-x: hidden;
   }
@@ -59,7 +59,7 @@ injectGlobal`
   }
 
   * {
-    border: 0px solid red;
+    border: 0px solid lightgray;
     box-sizing: border-box;
   }
 

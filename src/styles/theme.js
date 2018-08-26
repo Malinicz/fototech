@@ -1,5 +1,5 @@
 const theme = {
-  maxWidth: 1280,
+  maxWidth: 1200,
   spacing: 15,
   margin: '15px 55px 15px 55px',
   stickyHeaderOffset: 70,

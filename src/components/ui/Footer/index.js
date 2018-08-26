@@ -4,7 +4,7 @@ import { object } from 'prop-types';
 import styled from 'styles';
 
 import { Section, MaxWidthWrapper } from 'components/ui/base';
-import { FooterNavigation } from 'components/ui';
+import { FooterNavigation } from './FooterNavigation';
 import { SocialMediaIcons } from './SocialMediaIcons';
 import { ContactDetails } from './ContactDetails';
 
@@ -15,7 +15,7 @@ const FooterHolder = FooterBase.extend`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.brightest};
   max-width: unset;
-  padding-top: 50px;
+  padding: 50px 0 0 0;
 `;
 
 const BottomCover = styled.div`
@@ -87,6 +87,10 @@ export const Footer = withSiteData(({ siteData }) => {
   );
 });
 
+Footer.defaultProps = {
+  siteData: {},
+};
+
 Footer.propTypes = {
-  siteData: object.isRequired,
+  siteData: object,
 };
