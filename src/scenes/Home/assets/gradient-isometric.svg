@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1285.1 1380.931"><defs><style>.a{fill:url(#a);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#b4d6bd" stop-opacity="0.647"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><g transform="translate(-24.557 -967.283)"><path class="a" d="M981,952.01l526.223-329.651,757.736-485.076.7,1380.931-1285.1-.286Z" transform="translate(-956 830)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3347.139 3254.818">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.32" r="0.217" gradientTransform="matrix(0.543, 0.83, -2.242, 1.551, 0.946, -0.591)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b4d6bd"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path id="Path_483" data-name="Path 483" class="cls-1" d="M965.095,2125.927l1391.141-845.332L4149.27,137.283,4228.7,3392.1,881.558,3122.732Z" transform="translate(-881.558 -137.283)"/>
+</svg>

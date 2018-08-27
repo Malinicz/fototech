@@ -13,6 +13,7 @@ import { TransparentShelf, PrimaryColorShelf } from './Shelves';
 import styledTheme from 'styles/theme';
 
 const cameraDestructured = require('scenes/Home/assets/camera-destructured.svg');
+const isometricGradient = require('scenes/Home/assets/gradient-isometric.svg');
 
 const HowWeWorkHolder = Section.extend`
   padding-bottom: 100px;
@@ -91,6 +92,13 @@ const TermsOfUseLink = LinkWrapper.extend`
   }
 `;
 
+const IsometricGradient = styled.img`
+  position: absolute;
+  width: 2000px;
+  transform: translate(0, 410px);
+  z-index: -1;
+`;
+
 export const HowWeWork = () => {
   return (
     <HowWeWorkHolder>
@@ -98,6 +106,7 @@ export const HowWeWork = () => {
         <CameraDestructured src={cameraDestructured} alt="" />
         <UpperShelf />
         <LowerShelf />
+        <IsometricGradient src={isometricGradient} />
       </GraphicsHolder>
       <ContentHolder>
         <Article>
