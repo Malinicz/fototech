@@ -3,13 +3,8 @@ import { withSiteData, withRouteData } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
 
-import {
-  Section,
-  H1,
-  LinkWrapper,
-  Button,
-  ArrowIcon,
-} from 'components/ui/base';
+import { Section, H1, LinkWrapper, ArrowIcon } from 'components/ui/base';
+import { CallToActionButton } from './CallToActionButton';
 
 const mainPhoto = require('../assets/main-photo.jpg');
 
@@ -93,15 +88,6 @@ const LinkToVenue = LinkWrapper.extend`
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-
-  &:hover ${LinkWithArrowLabel} {
-    padding-right: 5px;
-  }
-`;
-
-const CallToActionButton = Button.extend`
-  margin-top: 70px;
-  background-color: ${({ theme }) => theme.colors.secondary};
 
   &:hover ${LinkWithArrowLabel} {
     padding-right: 5px;

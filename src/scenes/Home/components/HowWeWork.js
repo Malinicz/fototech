@@ -14,7 +14,9 @@ import styledTheme from 'styles/theme';
 
 const cameraDestructured = require('scenes/Home/assets/camera-destructured.svg');
 
-const HowWeWorkHolder = Section.extend``;
+const HowWeWorkHolder = Section.extend`
+  padding-bottom: 100px;
+`;
 
 const GraphicsHolder = styled.div`
   position: relative;

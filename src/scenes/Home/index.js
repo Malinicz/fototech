@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Layout } from 'components/ui';
-import { Intro, WhatWeFix, HowWeWork } from './components';
+import { Intro, WhatWeFix, HowWeWork, Valuation } from './components';
 
 class Home extends Component {
   render() {
@@ -10,6 +10,7 @@ class Home extends Component {
         <Intro />
         <WhatWeFix />
         <HowWeWork />
+        <Valuation />
       </Layout>
     );
   }

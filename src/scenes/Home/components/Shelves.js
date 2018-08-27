@@ -16,6 +16,12 @@ export const TransparentShelf = ShelfBase.extend`
   box-shadow: -7px 7px 8px 0px rgba(0, 0, 0, 0.2);
 `;
 
+export const TransparentShelfWithShadow = ShelfBase.extend`
+  background-color: ${({ theme }) => theme.colors.brightest};
+  opacity: 0.7;
+  box-shadow: -30px 30px 8px 0px rgba(0, 0, 0, 0.2);
+`;
+
 export const PrimaryColorShelf = ShelfBase.extend`
   background-color: ${({ theme }) => theme.colors.primary};
   box-shadow: -7px 7px 8px 0px rgba(0, 0, 0, 0.2);
