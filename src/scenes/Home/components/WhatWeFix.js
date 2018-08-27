@@ -4,21 +4,22 @@ import styled from 'styles';
 
 import { Section, H1, Card } from 'components/ui/base';
 
-const cameraReflex = require('../assets/camera-reflex.svg');
-const cameraMirrorless = require('../assets/camera-mirrorless.svg');
-const cameraLens = require('../assets/camera-lens.svg');
-const cameraFlash = require('../assets/camera-flash.svg');
-const camcorder = require('../assets/camcorder.svg');
+const cameraReflex = require('scenes/Home/assets/camera-reflex.svg');
+const cameraMirrorless = require('scenes/Home/assets/camera-mirrorless.svg');
+const cameraLens = require('scenes/Home/assets/camera-lens.svg');
+const cameraFlash = require('scenes/Home/assets/camera-flash.svg');
+const camcorder = require('scenes/Home/assets/camcorder.svg');
 
 const WhatWeFixHolder = Section.extend`
   flex-direction: column;
+  padding-bottom: 150px;
 `;
 
 const CardsHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
   flex-wrap: wrap;
+  margin-top: 15px;
 `;
 
 const CardLabel = styled.h2`

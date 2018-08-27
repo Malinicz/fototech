@@ -15,7 +15,7 @@ const FooterHolder = FooterBase.extend`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.brightest};
   max-width: unset;
-  padding: 50px 0 0 0;
+  padding: 50px 0 30px 0;
 `;
 
 const BottomCover = styled.div`
