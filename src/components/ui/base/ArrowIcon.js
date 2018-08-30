@@ -46,6 +46,10 @@ export const ArrowIcon = ({ color }) => {
   );
 };
 
+ArrowIcon.defaultProps = {
+  color: '#000',
+};
+
 ArrowIcon.propTypes = {
-  color: string.isRequired,
+  color: string,
 };

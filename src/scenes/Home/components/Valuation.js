@@ -7,7 +7,9 @@ import { CallToActionButton } from './CallToActionButton';
 
 const cameraMirrorless = require('scenes/Home/assets/camera-mirrorless.svg');
 
-const ValuationHolder = Section.extend``;
+const ValuationHolder = Section.extend`
+  margin-bottom: 70px;
+`;
 
 const GraphicsHolder = styled.div`
   position: relative;

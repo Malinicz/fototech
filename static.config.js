@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
+import client from './src/services/contentfulClient';
+
 import contentPL from './src/data/pl';
 
 const siteRoot = 'http://serwer11003.lh.pl';
@@ -17,12 +19,18 @@ export default {
     siteData: contentPL.shared,
   }),
   getRoutes: async () => {
+    const contentfulData = await client.getEntries();
+    const news = contentfulData.items.filter(
+      (item) =>
+        item.fields.category && item.fields.category.fields.name === 'news'
+    );
     return [
       {
         path: '/',
         component: 'src/scenes/Home',
         getData: async () => ({
           routeData: contentPL.home,
+          news,
         }),
       },
       {

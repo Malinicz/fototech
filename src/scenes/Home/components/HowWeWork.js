@@ -8,7 +8,7 @@ import {
   PdfIcon,
   LinkWrapper,
 } from 'components/ui/base';
-import { TransparentShelf, PrimaryColorShelf } from './Shelves';
+import { TransparentShelf, ColoredShelf } from './Shelves';
 
 import styledTheme from 'styles/theme';
 
@@ -55,7 +55,7 @@ const UpperShelf = TransparentShelf.extend`
   z-index: 7;
 `;
 
-const LowerShelf = PrimaryColorShelf.extend`
+const LowerShelf = ColoredShelf.extend`
   top: 60%;
   z-index: 5;
 `;
