@@ -7,8 +7,8 @@ import contentPL from './src/data/pl';
 
 const siteRoot = 'https://fototech.netlify.com';
 const stagingSiteRoot = 'https://fototech.netlify.com';
-const basePath = 'dist';
-const stagingBasePath = 'dist';
+const basePath = '';
+const stagingBasePath = '';
 
 export default {
   siteRoot,
