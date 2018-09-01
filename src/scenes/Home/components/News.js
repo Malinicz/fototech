@@ -9,7 +9,9 @@ import { formatDate } from 'utils/dateHelpers';
 
 const cameraReflex = require('scenes/Home/assets/camera-reflex.svg');
 
-const NewsHolder = Section.extend``;
+const NewsHolder = Section.extend`
+  margin-bottom: 30px;
+`;
 
 const UpperShelf = TransparentShelf.extend`
   z-index: 7;
@@ -63,7 +65,7 @@ const NewsDescription = Paragraph.extend`
   margin-bottom: 25px;
 `;
 
-export const News = withRouteData(({ news }) => {
+export const News = withRouteData(({ news, routeData: { newsHeading } }) => {
   return (
     <NewsHolder>
       <GraphicsHolder>
@@ -73,7 +75,7 @@ export const News = withRouteData(({ news }) => {
       </GraphicsHolder>
       <ContentHolder>
         <Article>
-          <ArticleTitle>Aktualności</ArticleTitle>
+          <ArticleTitle>{newsHeading}</ArticleTitle>
           {news.map((singleNews) => {
             return (
               <React.Fragment key={singleNews.sys.createdAt}>

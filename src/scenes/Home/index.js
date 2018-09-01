@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 import { Layout } from 'components/ui';
-import { Intro, WhatWeFix, HowWeWork, Valuation, News } from './components';
+import {
+  Intro,
+  WhatWeFix,
+  HowWeWork,
+  Valuation,
+  News,
+  StayInTouch,
+} from './components';
 
 class Home extends Component {
   render() {
@@ -12,6 +19,7 @@ class Home extends Component {
         <HowWeWork />
         <Valuation />
         <News />
+        <StayInTouch />
       </Layout>
     );
   }

@@ -114,30 +114,30 @@ const Camcorder = CardImage.extend`
 `;
 
 export const WhatWeFix = withRouteData(
-  ({ routeData: { whatWeFixHeading } }) => {
+  ({ routeData: { whatWeFixHeading, whatWeFixItems } }) => {
     return (
       <WhatWeFixHolder>
         <H1>{whatWeFixHeading}</H1>
         <CardsHolder>
           <StyledCard>
             <CameraReflex src={cameraReflex} />
-            <CardLabel>Lustrzanki i bezlusterkowce</CardLabel>
+            <CardLabel>{whatWeFixItems[0]}</CardLabel>
           </StyledCard>
           <StyledCard>
             <CameraMirrorless src={cameraMirrorless} />
-            <CardLabel marginTop={22}>Aparaty i obiektywy analogowe</CardLabel>
+            <CardLabel marginTop={22}>{whatWeFixItems[1]}</CardLabel>
           </StyledCard>
           <StyledCard>
             <CameraLens src={cameraLens} />
-            <CardLabel marginTop={1}>Aparaty i obiektywy analogowe</CardLabel>
+            <CardLabel marginTop={1}>{whatWeFixItems[2]}</CardLabel>
           </StyledCard>
           <StyledCard>
             <CameraFlash src={cameraFlash} />
-            <CardLabel>Aparaty i obiektywy analogowe</CardLabel>
+            <CardLabel>{whatWeFixItems[3]}</CardLabel>
           </StyledCard>
           <StyledCard>
             <Camcorder src={camcorder} />
-            <CardLabel marginTop={10}>Aparaty i obiektywy analogowe</CardLabel>
+            <CardLabel marginTop={10}>{whatWeFixItems[4]}</CardLabel>
           </StyledCard>
         </CardsHolder>
       </WhatWeFixHolder>

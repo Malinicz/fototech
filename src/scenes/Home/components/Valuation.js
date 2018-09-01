@@ -1,5 +1,7 @@
 import React from 'react';
+import { withRouteData } from 'react-static';
 import styled from 'styles';
+import Markdown from 'react-markdown';
 
 import { Section, H1, Paragraph } from 'components/ui/base';
 import { TransparentShelfWithShadow } from './Shelves';
@@ -48,29 +50,36 @@ const StyledCallToActionButton = CallToActionButton.extend`
   margin-top: 30px;
 `;
 
-export const Valuation = () => {
-  return (
-    <ValuationHolder>
-      <ContentHolder>
-        <Article>
-          <ArticleTitle>Wycena</ArticleTitle>
-          <Paragraph>
-            Wycena usługi naprawy jest u nas bezpłatna. Po dostarczeniu
-            uszkodzonego sprzętu, zostaje on poddany testom, diagnozie usterki,
-            która często wymaga demontażu podzespołów i w końcu wycenie, która
-            wysyłana jest do Państwa w ciągu jednego dnia roboczego. Po
-            otrzymaniu od Państwa pozytywnej odpowiedzi, przystępujemy do
-            naprawy, która trwa zazwyczaj kilka dni roboczych.
-          </Paragraph>
-          <StyledCallToActionButton>
-            Chcę dostarczyć sprzęt
-          </StyledCallToActionButton>
-        </Article>
-      </ContentHolder>
-      <GraphicsHolder>
-        <CameraMirrorless src={cameraMirrorless} alt="" />
-        <TransparentShelfWithShadow />
-      </GraphicsHolder>
-    </ValuationHolder>
-  );
-};
+export const Valuation = withRouteData(
+  ({
+    routeData: {
+      valuationHeading,
+      valuationParagraphs,
+      callToActionButtonLabel,
+    },
+  }) => {
+    return (
+      <ValuationHolder>
+        <ContentHolder>
+          <Article>
+            <ArticleTitle>{valuationHeading}</ArticleTitle>
+            <Markdown
+              source={valuationParagraphs[0]}
+              renderers={{
+                paragraph: Paragraph,
+                root: React.Fragment,
+              }}
+            />
+            <StyledCallToActionButton>
+              {callToActionButtonLabel}
+            </StyledCallToActionButton>
+          </Article>
+        </ContentHolder>
+        <GraphicsHolder>
+          <CameraMirrorless src={cameraMirrorless} alt="" />
+          <TransparentShelfWithShadow />
+        </GraphicsHolder>
+      </ValuationHolder>
+    );
+  }
+);

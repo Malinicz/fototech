@@ -1,5 +1,7 @@
 import React from 'react';
+import { withRouteData } from 'react-static';
 import styled from 'styles';
+import Markdown from 'react-markdown';
 
 import {
   Section,
@@ -7,6 +9,7 @@ import {
   Paragraph,
   PdfIcon,
   LinkWrapper,
+  ParagraphLink,
 } from 'components/ui/base';
 import { TransparentShelf, ColoredShelf } from './Shelves';
 
@@ -95,42 +98,52 @@ const TermsOfUseLink = LinkWrapper.extend`
 const IsometricGradient = styled.img`
   position: absolute;
   width: 2000px;
-  transform: translate(0, 410px);
+  transform: translate(300px, 230px);
   z-index: -1;
 `;
 
-export const HowWeWork = () => {
-  return (
-    <HowWeWorkHolder>
-      <GraphicsHolder>
-        <CameraDestructured src={cameraDestructured} alt="" />
-        <UpperShelf />
-        <LowerShelf />
-        <IsometricGradient src={isometricGradient} />
-      </GraphicsHolder>
-      <ContentHolder>
-        <Article>
-          <ArticleTitle>Jak działamy</ArticleTitle>
-          <Paragraph>
-            Mając na uwadze stosunkowo niskie ceny zakupu aparatów
-            fotograficznych, przy wykonywaniu wycen napraw staramy się rozsądnie
-            kalkulować koszty usług. Najpierw podejmujemy próbę diagnozy oraz
-            naprawy usterki na poziomie wymiany pojedynczych elementów
-            elektronicznych, a nie całych modułów. Takie działanie pozwala nam
-            na znaczne obniżenie końcowej ceny usługi oraz skrócenie czasu
-            naprawy.
-          </Paragraph>
-          <Paragraph>
-            Na wszystkie naprawy udzielamy 6 miesięcy gwarancji. Więcej
-            informacji w regulaminie.
-          </Paragraph>
-          <DottedDivider />
-          <TermsOfUseHolder>
-            <PdfIcon color={styledTheme.colors.primaryDarker} />
-            <TermsOfUseLink href="#">Regulamin</TermsOfUseLink>
-          </TermsOfUseHolder>
-        </Article>
-      </ContentHolder>
-    </HowWeWorkHolder>
-  );
-};
+export const HowWeWork = withRouteData(
+  ({
+    routeData: {
+      howWeWorkHeading,
+      howWeWorkParagraphs,
+      termsOfUse,
+      termsOfUseLink,
+    },
+  }) => {
+    return (
+      <HowWeWorkHolder>
+        <GraphicsHolder>
+          <CameraDestructured src={cameraDestructured} alt="" />
+          <UpperShelf />
+          <LowerShelf />
+          <IsometricGradient src={isometricGradient} />
+        </GraphicsHolder>
+        <ContentHolder>
+          <Article>
+            <ArticleTitle>{howWeWorkHeading}</ArticleTitle>
+            <Markdown
+              source={howWeWorkParagraphs[0]}
+              renderers={{ paragraph: Paragraph, root: React.Fragment }}
+            />
+            <Markdown
+              source={howWeWorkParagraphs[1]}
+              renderers={{
+                paragraph: Paragraph,
+                root: React.Fragment,
+                link: ParagraphLink,
+              }}
+            />
+            <DottedDivider />
+            <TermsOfUseHolder>
+              <PdfIcon color={styledTheme.colors.primaryDarker} />
+              <TermsOfUseLink href={termsOfUseLink}>
+                {termsOfUse}
+              </TermsOfUseLink>
+            </TermsOfUseHolder>
+          </Article>
+        </ContentHolder>
+      </HowWeWorkHolder>
+    );
+  }
+);
