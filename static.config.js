@@ -5,10 +5,10 @@ import client from './src/services/contentfulClient';
 
 import contentPL from './src/data/pl';
 
-const siteRoot = 'http://serwer11003.lh.pl';
-const stagingSiteRoot = 'http://serwer11003.lh.pl';
-const basePath = 'fototech';
-const stagingBasePath = 'fototech';
+const siteRoot = 'https://fototech.netlify.com';
+const stagingSiteRoot = 'https://fototech.netlify.com';
+const basePath = 'dist';
+const stagingBasePath = 'dist';
 
 export default {
   siteRoot,
