@@ -58,9 +58,9 @@ export const Valuation = () => {
             Wycena usługi naprawy jest u nas bezpłatna. Po dostarczeniu
             uszkodzonego sprzętu, zostaje on poddany testom, diagnozie usterki,
             która często wymaga demontażu podzespołów i w końcu wycenie, która
-            wysyłana jest do Państwa w ciągu 1 dnia roboczego. Po otrzymaniu od
-            Państwa pozytywnej odpowiedzi, przystępujemy do naprawy, która trwa
-            zazwyczaj kilka dni roboczych.
+            wysyłana jest do Państwa w ciągu jednego dnia roboczego. Po
+            otrzymaniu od Państwa pozytywnej odpowiedzi, przystępujemy do
+            naprawy, która trwa zazwyczaj kilka dni roboczych.
           </Paragraph>
           <StyledCallToActionButton>
             Chcę dostarczyć sprzęt
