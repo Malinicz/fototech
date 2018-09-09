@@ -58,6 +58,17 @@ const CardLabel = styled.h2`
   }
 `;
 
+const IsometricCardBackground = styled.div`
+  position: absolute;
+  z-index: 0;
+  width: 400px;
+  height: 400px;
+  transform: translate3d(-50px, 270px, 0) rotate(30deg);
+  color: black;
+  overflow: hidden;
+  transition: 0.5s ease transform;
+`;
+
 const StyledCard = Card.extend`
   position: relative;
   display: flex;
@@ -69,13 +80,19 @@ const StyledCard = Card.extend`
   min-width: 180px;
   max-width: 200px;
   height: 250px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.brightest};
   overflow: hidden;
 
-  &:hover {
-    &::after {
-      transform: translate3d(50px, -135px, 0) rotate(30deg);
-    }
+  &:hover ${IsometricCardBackground} {
+    transform: translate3d(50px, -135px, 0) rotate(30deg);
+  }
+
+  &:nth-child(2n) ${IsometricCardBackground} {
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &:nth-child(2n + 1) ${IsometricCardBackground} {
+    background-color: ${({ theme }) => theme.colors.secondary};
   }
 
   &:nth-child(2n + 1) {
@@ -88,30 +105,6 @@ const StyledCard = Card.extend`
     &:hover ${CardLabel} {
       color: ${({ theme }) => theme.colors.primaryDarker};
     }
-  }
-
-  &:nth-child(2n + 1) {
-    &::after {
-      background-color: ${({ theme }) => theme.colors.secondary};
-    }
-  }
-
-  &:nth-child(2n) {
-    &::after {
-      background-color: ${({ theme }) => theme.colors.primary};
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    width: 400px;
-    height: 400px;
-    transform: translate3d(-50px, 270px, 0) rotate(30deg);
-    color: black;
-    overflow: hidden;
-    transition: 0.5s ease transform;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
@@ -163,22 +156,27 @@ export const WhatWeFix = withRouteData(
           <StyledCard>
             <CameraReflex src={cameraReflex} />
             <CardLabel>{whatWeFixItems[0]}</CardLabel>
+            <IsometricCardBackground />
           </StyledCard>
           <StyledCard>
             <CameraMirrorless src={cameraMirrorless} />
             <CardLabel marginTop={22}>{whatWeFixItems[1]}</CardLabel>
+            <IsometricCardBackground />
           </StyledCard>
           <StyledCard>
             <CameraLens src={cameraLens} />
             <CardLabel marginTop={1}>{whatWeFixItems[2]}</CardLabel>
+            <IsometricCardBackground />
           </StyledCard>
           <StyledCard>
             <CameraFlash src={cameraFlash} />
             <CardLabel>{whatWeFixItems[3]}</CardLabel>
+            <IsometricCardBackground />
           </StyledCard>
           <StyledCard>
             <Camcorder src={camcorder} />
             <CardLabel marginTop={10}>{whatWeFixItems[4]}</CardLabel>
+            <IsometricCardBackground />
           </StyledCard>
         </CardsHolder>
       </WhatWeFixHolder>

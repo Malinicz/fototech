@@ -45,11 +45,13 @@ const HeadingHolder = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     position: absolute;
     top: 40%;
+    transform: translate(-50%, -40%);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     position: absolute;
     top: 32%;
+    transform: translate(-50%, -32%);
   }
 `;
 

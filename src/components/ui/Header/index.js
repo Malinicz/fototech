@@ -54,6 +54,11 @@ const CompanyLogo = styled.img`
     position: absolute;
     margin-top: 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    width: 170px;
+    margin-top: 15px;
+  }
 `;
 
 const Stripe = styled.div`
