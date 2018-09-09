@@ -9,6 +9,12 @@ const ContactDetailsHolder = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 80px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const AddressHolder = styled.address`
@@ -17,6 +23,14 @@ const AddressHolder = styled.address`
   font-style: normal;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   line-height: 1.5em;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    margin-bottom: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const AddressLabel = styled.div`
@@ -38,6 +52,10 @@ const MapLink = AddressLink.extend`
   display: flex;
   align-items: center;
   margin-top: 1.5em;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    justify-content: center;
+  }
 `;
 
 const PlaceIconHolder = styled.div`

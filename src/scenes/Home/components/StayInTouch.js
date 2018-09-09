@@ -14,6 +14,10 @@ const youtubeLogoIsometric = require('scenes/Home/assets/youtube-logo-isometric.
 
 const StayInTouchHolder = Section.extend`
   margin-bottom: 70px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    margin-bottom: -70px;
+  }
 `;
 
 const GraphicsHolder = styled.div`
@@ -22,7 +26,13 @@ const GraphicsHolder = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  min-width: 500px;
   min-height: 400px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 40%;
+    min-width: 400px;
+  }
 `;
 
 const ContentHolder = styled.div`
@@ -31,9 +41,21 @@ const ContentHolder = styled.div`
   align-items: center;
   justify-content: center;
   width: 50%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 60%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 100%;
+  }
 `;
 
-const Article = styled.article``;
+const Article = styled.article`
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    text-align: center;
+  }
+`;
 
 const ArticleTitle = H1.extend`
   margin-top: 0;
@@ -42,19 +64,19 @@ const ArticleTitle = H1.extend`
 const SocialLogoIsometricBase = styled.img`
   position: absolute;
   z-index: 2;
-  width: 100px;
+  width: 17.5%;
 `;
 
 const YoutubeLogoIsometric = SocialLogoIsometricBase.extend`
-  transform: translate(50px, -70px);
+  transform: translate(60%, -55%);
 `;
 
 const FacebookLogoIsometric = SocialLogoIsometricBase.extend`
-  transform: translate(-130px, -40px);
+  transform: translate(-120%, -40%);
 `;
 
 const GooglePlusLogoIsometric = SocialLogoIsometricBase.extend`
-  transform: translate(0, 20px);
+  transform: translate(0, 15%);
 `;
 
 export const StayInTouch = withRouteData(

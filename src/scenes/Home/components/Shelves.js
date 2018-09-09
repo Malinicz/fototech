@@ -8,6 +8,21 @@ export const ShelfBase = styled.div`
   height: 250px;
   border-radius: 15px;
   transform: translate3d(-50%, -50%, 0) rotate(-30deg) skew(30deg);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 250px;
+    height: 250px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 160px;
+    height: 160px;
+  }
 `;
 
 export const TransparentShelf = ShelfBase.extend`

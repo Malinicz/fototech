@@ -12,6 +12,11 @@ const Main = MainBase.extend`
   margin-bottom: 100px;
   padding: 0;
   min-height: 500px;
+  overflow: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    margin-top: ${({ theme }) => theme.stickyHeaderOffset}px;
+  }
 `;
 
 export const Layout = ({ children }) => {

@@ -11,6 +11,10 @@ const cameraMirrorless = require('scenes/Home/assets/camera-mirrorless.svg');
 
 const ValuationHolder = Section.extend`
   margin-bottom: 70px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    margin-bottom: -30px;
+  }
 `;
 
 const GraphicsHolder = styled.div`
@@ -19,7 +23,13 @@ const GraphicsHolder = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  min-width: 500px;
   min-height: 400px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 40%;
+    min-width: 400px;
+  }
 `;
 
 const ContentHolder = styled.div`
@@ -28,9 +38,21 @@ const ContentHolder = styled.div`
   align-items: center;
   justify-content: center;
   width: 50%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 60%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 100%;
+  }
 `;
 
-const Article = styled.article``;
+const Article = styled.article`
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    text-align: center;
+  }
+`;
 
 const ArticleTitle = H1.extend`
   margin-top: 0;
@@ -42,7 +64,7 @@ const CameraMirrorless = styled.img`
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
-  width: 270px;
+  width: 45%;
 `;
 
 const StyledCallToActionButton = CallToActionButton.extend`

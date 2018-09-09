@@ -17,6 +17,11 @@ const NavElementsHolder = styled.ul`
   padding: 0;
   margin: 0;
   list-style-type: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const NavElementHolder = styled.div`
@@ -27,6 +32,7 @@ const NavElement = styled.li`
   display: flex;
   align-items: center;
   height: 40px;
+  justify-content: center;
 `;
 
 const NavLink = styled.a`
@@ -51,6 +57,10 @@ const Divider = styled.div`
   &::after {
     content: '|';
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    display: none;
+  }
 `;
 
 const NavSubElementsHolder = styled.ul`
@@ -60,6 +70,13 @@ const NavSubElementsHolder = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    position: relative;
+    top: unset;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 `;
 
 const NavSubElement = styled.li`

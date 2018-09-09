@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string } from 'prop-types';
+import { array, string, bool } from 'prop-types';
 import styled from 'styles';
 
 const HeaderNavigationHolder = styled.nav`
@@ -7,6 +7,16 @@ const HeaderNavigationHolder = styled.nav`
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    position: absolute;
+    top: ${({ isMobileMenuActive }) =>
+      isMobileMenuActive ? '100px' : '-500px'};
+    left: 50%;
+    opacity: ${({ isMobileMenuActive }) => (isMobileMenuActive ? 1 : 0)};
+    transform: translateX(-50%);
+    transition: 0.3s ease opacity;
+  }
 `;
 
 const NavElementsHolder = styled.ul`
@@ -15,6 +25,10 @@ const NavElementsHolder = styled.ul`
   padding: 0;
   margin: 0;
   list-style-type: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    flex-direction: column;
+  }
 `;
 
 const NavElement = styled.li`
@@ -45,11 +59,19 @@ const Divider = styled.div`
   &::after {
     content: '●';
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    display: none;
+  }
 `;
 
-export const HeaderNavigation = ({ navLinks, activeLink }) => {
+export const HeaderNavigation = ({
+  navLinks,
+  activeLink,
+  isMobileMenuActive,
+}) => {
   return (
-    <HeaderNavigationHolder>
+    <HeaderNavigationHolder isMobileMenuActive={isMobileMenuActive}>
       <NavElementsHolder>
         {navLinks.map((navLink, index) => {
           const isActive = navLink.slug === activeLink;
@@ -73,4 +95,5 @@ export const HeaderNavigation = ({ navLinks, activeLink }) => {
 HeaderNavigation.propTypes = {
   navLinks: array.isRequired,
   activeLink: string.isRequired,
+  isMobileMenuActive: bool.isRequired,
 };

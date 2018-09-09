@@ -49,24 +49,30 @@ const YouTubeIcon = styled.img`
   width: 30px;
 `;
 
+const StyledLinkWrapper = LinkWrapper.extend`
+  &:hover {
+    opacity: 1 !important;
+  }
+`;
+
 export const SocialMediaIcons = ({ socialMediaUrls }) => {
   return (
     <SocialMediaIconsHolder>
-      <LinkWrapper href={socialMediaUrls.facebook} target="_blank">
+      <StyledLinkWrapper href={socialMediaUrls.facebook} target="_blank">
         <IconHolder>
           <FacebookIcon src={facebookLogo} />
         </IconHolder>
-      </LinkWrapper>
-      <LinkWrapper href={socialMediaUrls.googlePlus} target="_blank">
+      </StyledLinkWrapper>
+      <StyledLinkWrapper href={socialMediaUrls.googlePlus} target="_blank">
         <IconHolder>
           <GooglePlusIcon src={googlePlusLogo} />
         </IconHolder>
-      </LinkWrapper>
-      <LinkWrapper href={socialMediaUrls.youTube} target="_blank">
+      </StyledLinkWrapper>
+      <StyledLinkWrapper href={socialMediaUrls.youTube} target="_blank">
         <IconHolder>
           <YouTubeIcon src={youTubeLogo} />
         </IconHolder>
-      </LinkWrapper>
+      </StyledLinkWrapper>
     </SocialMediaIconsHolder>
   );
 };

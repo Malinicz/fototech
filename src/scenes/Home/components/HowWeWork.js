@@ -20,6 +20,11 @@ const isometricGradient = require('scenes/Home/assets/gradient-isometric.svg');
 
 const HowWeWorkHolder = Section.extend`
   padding-bottom: 100px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    flex-direction: column-reverse;
+    padding-bottom: 0;
+  }
 `;
 
 const GraphicsHolder = styled.div`
@@ -28,7 +33,18 @@ const GraphicsHolder = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  min-width: 500px;
   min-height: 400px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 40%;
+    min-width: 400px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 100%;
+    max-width: 500px;
+  }
 `;
 
 const ContentHolder = styled.div`
@@ -37,6 +53,14 @@ const ContentHolder = styled.div`
   align-items: center;
   justify-content: center;
   width: 50%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    width: 60%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    width: 100%;
+  }
 `;
 
 const Article = styled.article``;
@@ -51,7 +75,7 @@ const CameraDestructured = styled.img`
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
-  width: 200px;
+  width: 35%;
 `;
 
 const UpperShelf = TransparentShelf.extend`
@@ -81,6 +105,10 @@ const DottedDivider = styled.div`
 const TermsOfUseHolder = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    justify-content: center;
+  }
 `;
 
 const TermsOfUseLink = LinkWrapper.extend`

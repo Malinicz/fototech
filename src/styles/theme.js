@@ -22,7 +22,7 @@ const theme = {
   },
   primaryFontFamily: 'Montserrat',
   breakpoints: {
-    large: 1280,
+    large: 1100,
     medium: 768,
     small: 500,
   },
