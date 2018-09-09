@@ -6,7 +6,7 @@ import styled from 'styles';
 import { Section, H1, LinkWrapper, ArrowIcon } from 'components/ui/base';
 import { CallToActionButton } from './CallToActionButton';
 
-// const mainPhoto = require('../assets/main-photo.jpg');
+const mainPhoto = require('../assets/main-photo.jpg');
 const fototechVideo = require('assets/fototech-video.mp4');
 
 const IntroHolder = Section.extend`
@@ -88,7 +88,21 @@ const MainPhotoHolder = styled.div`
   }
 `;
 
-const MainPhoto = styled.video`
+const MobilePhoto = styled.div`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    display: block;
+    max-width: unset;
+    height: 100vh;
+    background-image: url(${mainPhoto});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+`;
+
+const VideoLarge = styled.video`
   position: relative;
   display: block;
   width: 100%;
@@ -124,6 +138,10 @@ const Video = styled.video`
     min-height: 100%;
     background-position: center;
     display: block;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    display: none;
   }
 `;
 
@@ -161,7 +179,7 @@ const CallToActionArea = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: ${({ theme }) => theme.spacing}px;
     margin-left: 0;
     margin-top: 30px;
@@ -196,7 +214,7 @@ const VenueHolder = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     margin-bottom: 0;
-    margin-right: ${({ theme }) => theme.spacing}px;
+    margin-right: ${({ theme }) => theme.spacing * 2}px;
 
     &:last-child {
       margin-right: 0;
@@ -279,11 +297,13 @@ export const Intro = withSiteData(
           </HeadingHolder>
           <Row>
             <MainPhotoHolder>
-              <MainPhoto autoPlay muted loop id="myVideo">
+              <VideoLarge autoPlay muted loop id="myVideo">
                 <source src={fototechVideo} type="video/mp4" />
-              </MainPhoto>
+              </VideoLarge>
+
               <VideoHolder>
                 <VideoOverlay />
+                <MobilePhoto />
                 <Video autoPlay muted loop id="myVideo">
                   <source src={fototechVideo} type="video/mp4" />
                 </Video>
