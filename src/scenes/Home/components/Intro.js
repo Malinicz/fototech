@@ -6,7 +6,8 @@ import styled from 'styles';
 import { Section, H1, LinkWrapper, ArrowIcon } from 'components/ui/base';
 import { CallToActionButton } from './CallToActionButton';
 
-const mainPhoto = require('../assets/main-photo.jpg');
+// const mainPhoto = require('../assets/main-photo.jpg');
+const fototechVideo = require('assets/fototech-video.mp4');
 
 const IntroHolder = Section.extend`
   flex-direction: column;
@@ -19,6 +20,7 @@ const IntroHolder = Section.extend`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
     align-items: unset;
+    margin-bottom: 0;
   }
 `;
 
@@ -35,11 +37,14 @@ const HeadingHolder = styled.div`
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -45%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: transparent;
     width: 100%;
+    height: 400px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
@@ -50,8 +55,8 @@ const HeadingHolder = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     position: absolute;
-    top: 32%;
-    transform: translate(-50%, -32%);
+    top: 25%;
+    transform: translate(-50%, -25%);
   }
 `;
 
@@ -59,15 +64,19 @@ const Heading = H1.extend`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     font-size: 3.5em;
     text-align: center;
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    font-size: 2.5em;
+    font-size: 2.8em;
   }
 `;
 
 const Thin = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+  }
 `;
 
 const MainPhotoHolder = styled.div`
@@ -76,14 +85,10 @@ const MainPhotoHolder = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     max-width: unset;
     height: 100vh;
-    background-image: url(${mainPhoto});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 `;
 
-const MainPhoto = styled.img`
+const MainPhoto = styled.video`
   position: relative;
   display: block;
   width: 100%;
@@ -92,6 +97,47 @@ const MainPhoto = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     display: none;
+  }
+`;
+
+const VideoHolder = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+`;
+
+const Video = styled.video`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    background-position: center;
+    display: block;
+  }
+`;
+
+const VideoOverlay = styled.div`
+  display: none;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -198,7 +244,20 @@ const LinkToVenue = LinkWrapper.extend`
 
 const StyledCallToActionButton = CallToActionButton.extend`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    display: none;
     margin-top: 0;
+  }
+`;
+
+const StyledCallToActionButtonVideo = CallToActionButton.extend`
+  display: none;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    display: block;
+    background-color: ${({ theme }) => theme.colors.brightest};
+    color: ${({ theme }) => theme.colors.darker};
+    position: relative;
+    margin-top: 30px;
+    z-index: 5;
   }
 `;
 
@@ -214,10 +273,21 @@ export const Intro = withSiteData(
             <Heading>
               {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
             </Heading>
+            <StyledCallToActionButtonVideo>
+              {callToActionButtonLabel}
+            </StyledCallToActionButtonVideo>
           </HeadingHolder>
           <Row>
             <MainPhotoHolder>
-              <MainPhoto src={mainPhoto} alt="" />
+              <MainPhoto autoPlay muted loop id="myVideo">
+                <source src={fototechVideo} type="video/mp4" />
+              </MainPhoto>
+              <VideoHolder>
+                <VideoOverlay />
+                <Video autoPlay muted loop id="myVideo">
+                  <source src={fototechVideo} type="video/mp4" />
+                </Video>
+              </VideoHolder>
             </MainPhotoHolder>
             <CallToActionArea>
               <VenuesHolder>

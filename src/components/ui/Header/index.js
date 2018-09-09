@@ -21,8 +21,8 @@ const HeaderHolder = HeaderBase.extend`
   padding: 0;
   height: ${({ theme }) => theme.stickyHeaderOffset}px;
   max-width: unset;
-  box-shadow: ${({ isOnTop }) =>
-    isOnTop
+  box-shadow: ${({ isOnTop, isExpanded }) =>
+    isOnTop || isExpanded
       ? '0px 5px 5px -5px rgba(0, 0, 0, 0.2)'
       : '0px 3px 5px 0px rgba(0, 0, 0, 0)'};
   background-color: ${({ theme, isOnTop }) =>
