@@ -39,7 +39,7 @@ injectGlobal`
     position: relative;
     margin: 0;
     padding: 0;
-    font-family: ${theme.primaryFontFamily};
+    font-family: ${theme.primaryFontFamily}, arial, sans-serif;
     font-style: normal;
     font-weight: ${theme.fontWeight.regular};
     font-size: 16px;
