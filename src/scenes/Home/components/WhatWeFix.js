@@ -71,6 +71,7 @@ const IsometricCardBackground = styled.div`
 
 const StyledCard = Card.extend`
   position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
