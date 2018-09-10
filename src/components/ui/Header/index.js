@@ -56,8 +56,8 @@ const CompanyLogo = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    width: 170px;
-    margin-top: 15px;
+    width: 180px;
+    margin-top: 14px;
   }
 `;
 

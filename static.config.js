@@ -26,11 +26,25 @@ export default {
     );
     return [
       {
-        path: '/',
+        path: contentPL.shared.navigation[0].slug,
         component: 'src/scenes/Home',
         getData: async () => ({
           routeData: contentPL.home,
           news,
+        }),
+      },
+      {
+        path: contentPL.shared.navigation[2].slug,
+        component: 'src/scenes/HowToDeliver',
+        getData: async () => ({
+          routeData: contentPL.howToDeliver,
+        }),
+      },
+      {
+        path: contentPL.shared.navigation[2].sections[0].slug,
+        component: 'src/scenes/HowToDeliver',
+        getData: async () => ({
+          routeData: contentPL.howToDeliver,
         }),
       },
       {

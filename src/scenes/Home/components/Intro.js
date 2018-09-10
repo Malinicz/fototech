@@ -30,7 +30,7 @@ const HeadingHolder = styled.div`
   padding: 0 35px;
   background-color: ${({ theme }) => theme.colors.primary};
   height: 70px;
-  width: 60%;
+  width: 760px;
   color: ${({ theme }) => theme.colors.brightest};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
