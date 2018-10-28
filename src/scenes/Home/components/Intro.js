@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withSiteData, withRouteData } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
+import styledTheme from 'styles/theme';
 
 import { Section, H1, LinkWrapper, ArrowIcon } from 'components/ui/base';
 import { CallToActionButton } from './CallToActionButton';
@@ -94,8 +95,9 @@ const VideoHolder = styled.div`
   position: absolute;
   top: -40px;
   right: 0;
-  left: 40px;
+  left: 38px;
   width: 100%;
+  height: 100%;
   z-index: -1;
   overflow: hidden;
 
@@ -121,17 +123,22 @@ const Video = styled.video`
   }
 `;
 
-// const PlaceholderPhoto = styled.div`
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   background-image: url(${mainPhoto});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-// `;
+const PlaceholderPhoto = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${mainPhoto});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+`;
 
-const VideoOverlay = styled.div`
+const MainGraphicsOverlay = styled.div`
   display: none;
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     display: block;
@@ -161,8 +168,10 @@ const CallToActionArea = styled.div`
   margin-left: 35px;
   padding: ${({ theme }) =>
     `${theme.spacing}px 0px ${theme.spacing}px ${theme.spacing}px`};
+  transform: translateY(-20px);
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    transform: none;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -247,6 +256,7 @@ const LinkToVenue = LinkWrapper.extend`
 `;
 
 const StyledCallToActionButton = CallToActionButton.extend`
+  margin-top: 40px;
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     display: none;
     margin-top: 0;
@@ -265,62 +275,87 @@ const StyledCallToActionButtonVideo = CallToActionButton.extend`
   }
 `;
 
-export const Intro = withSiteData(
-  withRouteData(
-    ({
+class Intro extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.video = null;
+  }
+
+  componentDidMount() {
+    if (
+      window.matchMedia(`(max-width: ${styledTheme.breakpoints.small}px)`)
+        .matches
+    ) {
+      this.video.parentNode.removeChild(this.video);
+    }
+  }
+
+  render() {
+    const {
       siteData: { contactDetails },
       routeData: { mainHeading, linkToVenueLabel, callToActionButtonLabel },
-    }) => {
-      return (
-        <IntroHolder>
-          <HeadingHolder>
-            <Heading>
-              {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
-            </Heading>
-            <StyledCallToActionButtonVideo>
+    } = this.props;
+
+    return (
+      <IntroHolder>
+        <HeadingHolder>
+          <Heading>
+            {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
+          </Heading>
+          <StyledCallToActionButtonVideo>
+            {callToActionButtonLabel}
+          </StyledCallToActionButtonVideo>
+        </HeadingHolder>
+        <Row>
+          <MainGraphicsHolder>
+            <VideoHolder>
+              <PlaceholderPhoto />
+              <Video
+                autoPlay
+                muted
+                loop
+                poster={mainPhoto}
+                innerRef={(el) => {
+                  this.video = el;
+                }}>
+                <source src={fototechVideo} type="video/mp4" />
+              </Video>
+              <MainGraphicsOverlay />
+            </VideoHolder>
+          </MainGraphicsHolder>
+          <CallToActionArea>
+            <VenuesHolder>
+              <VenueHolder>
+                <City>{contactDetails.warszawa.city}</City>
+                <Street>{contactDetails.warszawa.street}</Street>
+                <Divider />
+                <LinkToVenue>
+                  <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
+                  <ArrowIcon />
+                </LinkToVenue>
+              </VenueHolder>
+              <VenueHolder>
+                <City>{contactDetails.krakow.city}</City>
+                <Street>{contactDetails.krakow.street}</Street>
+                <Divider />
+                <LinkToVenue>
+                  <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
+                  <ArrowIcon />
+                </LinkToVenue>
+              </VenueHolder>
+            </VenuesHolder>
+            <StyledCallToActionButton>
               {callToActionButtonLabel}
-            </StyledCallToActionButtonVideo>
-          </HeadingHolder>
-          <Row>
-            <MainGraphicsHolder>
-              <VideoHolder>
-                <Video autoPlay muted loop poster={mainPhoto}>
-                  <source src={fototechVideo} type="video/mp4" />
-                </Video>
-                <VideoOverlay />
-              </VideoHolder>
-            </MainGraphicsHolder>
-            <CallToActionArea>
-              <VenuesHolder>
-                <VenueHolder>
-                  <City>{contactDetails.warszawa.city}</City>
-                  <Street>{contactDetails.warszawa.street}</Street>
-                  <Divider />
-                  <LinkToVenue>
-                    <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
-                    <ArrowIcon />
-                  </LinkToVenue>
-                </VenueHolder>
-                <VenueHolder>
-                  <City>{contactDetails.krakow.city}</City>
-                  <Street>{contactDetails.krakow.street}</Street>
-                  <Divider />
-                  <LinkToVenue>
-                    <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
-                    <ArrowIcon />
-                  </LinkToVenue>
-                </VenueHolder>
-              </VenuesHolder>
-              <StyledCallToActionButton>
-                {callToActionButtonLabel}
-              </StyledCallToActionButton>
-            </CallToActionArea>
-          </Row>
-        </IntroHolder>
-      );
-    }
-  )
-);
+            </StyledCallToActionButton>
+          </CallToActionArea>
+        </Row>
+      </IntroHolder>
+    );
+  }
+}
+
+export default withSiteData(withRouteData(Intro));
 
 Intro.defaultProps = {
   siteData: {},
