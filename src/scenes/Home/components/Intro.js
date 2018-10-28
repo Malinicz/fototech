@@ -84,11 +84,10 @@ const MainGraphicsHolder = styled.div`
   position: relative;
   width: 760px;
   height: 420px;
-  transition: 0.3s ease all;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
   }
 `;
 
@@ -313,7 +312,6 @@ class Intro extends Component {
         <Row>
           <MainGraphicsHolder>
             <VideoHolder>
-              <PlaceholderPhoto />
               <Video
                 autoPlay
                 muted
