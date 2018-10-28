@@ -28,6 +28,10 @@ const SegmentButton = styled.button`
   &:last-child {
     border-right: none;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    width: 150px;
+  }
 `;
 
 const SegmentButtonLink = styled.a`

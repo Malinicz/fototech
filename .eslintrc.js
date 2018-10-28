@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'react/jsx-one-expression-per-line': OFF,
     'react/no-unescaped-entities': OFF,
+    'react/no-array-index-key': OFF,
     'arrow-body-style': OFF,
     'arrow-parens': [ON, 'always'],
     'react/jsx-filename-extension': OFF,

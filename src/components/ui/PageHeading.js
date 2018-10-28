@@ -16,6 +16,7 @@ const PageTitle = H1.extend`
 const PageSubtitle = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   margin: 10px 0 80px 0;
+  text-align: center;
 `;
 
 export const PageHeading = ({ icon, title, subtitle }) => {
