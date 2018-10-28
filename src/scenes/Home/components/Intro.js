@@ -29,7 +29,7 @@ const HeadingHolder = styled.div`
   align-items: center;
   padding: 0 35px;
   background-color: ${({ theme }) => theme.colors.primary};
-  height: 70px;
+  height: 75px;
   width: 760px;
   color: ${({ theme }) => theme.colors.brightest};
 
@@ -79,71 +79,57 @@ const Thin = styled.span`
   }
 `;
 
-const MainPhotoHolder = styled.div`
-  max-width: 768px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
-    max-width: unset;
-    height: 100vh;
-  }
-`;
-
-const MobilePhoto = styled.div`
-  display: none;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    display: block;
-    max-width: unset;
-    height: 100vh;
-    background-image: url(${mainPhoto});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-`;
-
-const VideoLarge = styled.video`
+const MainGraphicsHolder = styled.div`
   position: relative;
-  display: block;
-  width: 100%;
-  transform: translate3d(35px, -35px, 0);
-  z-index: -5;
+  width: 760px;
+  height: 420px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
-    display: none;
+    height: 100vh;
+    width: 100vw;
   }
 `;
 
 const VideoHolder = styled.div`
   position: absolute;
-  top: 0;
+  top: -40px;
   right: 0;
-  bottom: 0;
-  left: 0;
+  left: 40px;
   width: 100%;
-  height: 100vh;
   z-index: -1;
   overflow: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
 `;
 
 const Video = styled.video`
-  display: none;
+  display: block;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
+    width: unset;
     min-width: 100%;
     min-height: 100%;
-    background-position: center;
-    display: block;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    display: none;
   }
 `;
+
+// const PlaceholderPhoto = styled.div`
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   background-image: url(${mainPhoto});
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+// `;
 
 const VideoOverlay = styled.div`
   display: none;
@@ -296,19 +282,14 @@ export const Intro = withSiteData(
             </StyledCallToActionButtonVideo>
           </HeadingHolder>
           <Row>
-            <MainPhotoHolder>
-              <VideoLarge autoPlay muted loop id="myVideo">
-                <source src={fototechVideo} type="video/mp4" />
-              </VideoLarge>
-
+            <MainGraphicsHolder>
               <VideoHolder>
-                <VideoOverlay />
-                <MobilePhoto />
-                <Video autoPlay muted loop id="myVideo">
+                <Video autoPlay muted loop poster={mainPhoto}>
                   <source src={fototechVideo} type="video/mp4" />
                 </Video>
+                <VideoOverlay />
               </VideoHolder>
-            </MainPhotoHolder>
+            </MainGraphicsHolder>
             <CallToActionArea>
               <VenuesHolder>
                 <VenueHolder>
