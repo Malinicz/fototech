@@ -133,7 +133,7 @@ const Rectangle = styled.div`
       ? `linear-gradient(to bottom, ${getRgba(
           theme.colors.primary,
           1
-        )} 0%, rgba(1,1,1,0) 100%)`
+        )} 0%, ${getRgba(theme.colors.brighter, 1)} 100%)`
       : theme.colors.primary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
