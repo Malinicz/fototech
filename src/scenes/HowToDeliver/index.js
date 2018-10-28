@@ -16,9 +16,15 @@ class HowToDeliver extends Component {
         initialLink: '/jak-dostarczyc',
         link: '/jak-dostarczyc/poczta',
         label: 'Pocztą',
-        icon: '',
+        icon: 'mail',
+        iconSize: 20,
       },
-      { link: '/jak-dostarczyc/osobiscie', label: 'Osobiście', icon: '' },
+      {
+        link: '/jak-dostarczyc/osobiscie',
+        label: 'Osobiście',
+        icon: 'manWalking',
+        iconSize: 14,
+      },
     ];
 
     return (

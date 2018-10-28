@@ -4,7 +4,8 @@ import { object } from 'prop-types';
 import styled from 'styles';
 import styledTheme from 'styles/theme';
 
-import { Section, H1, LinkWrapper, ArrowIcon } from 'components/ui/base';
+import { Section, H1, LinkWrapper } from 'components/ui/base';
+import { Icon } from 'components/ui';
 import { CallToActionButton } from './CallToActionButton';
 
 const mainPhoto = require('../assets/main-photo.jpg');
@@ -84,7 +85,6 @@ const MainGraphicsHolder = styled.div`
   position: relative;
   width: 760px;
   height: 420px;
-  transition: 0.2s ease all;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     height: 100vh;
@@ -336,7 +336,7 @@ class Intro extends Component {
                 <Divider />
                 <LinkToVenue>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
-                  <ArrowIcon />
+                  <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
               </VenueHolder>
               <VenueHolder>
@@ -345,7 +345,7 @@ class Intro extends Component {
                 <Divider />
                 <LinkToVenue>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
-                  <ArrowIcon />
+                  <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
               </VenueHolder>
             </VenuesHolder>

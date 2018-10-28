@@ -5,6 +5,4 @@ export { H1, H2 } from './Headers';
 export { Paragraph } from './Paragraph';
 export { LinkWrapper, ParagraphLink } from './LinkWrappers';
 export { MaxWidthWrapper } from './MaxWidthWrapper';
-export { ArrowIcon } from './ArrowIcon';
-export { PdfIcon } from './PdfIcon';
 export { Card } from './Card';

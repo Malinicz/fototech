@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styles';
 import { arrayOf, shape, string, number } from 'prop-types';
 
+import { Icon } from 'components/ui';
+
 const SegmentedButtonsHolder = styled.div`
   display: flex;
   height: 47px;
@@ -12,8 +14,8 @@ const SegmentedButtonsHolder = styled.div`
 const SegmentButton = styled.button`
   display: flex;
   justify-content: center;
-  height: 100%;
   align-items: center;
+  height: 100%;
   width: ${({ width }) => width || 200}px;
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.brightest : theme.colors.secondaryDarker};
@@ -47,6 +49,13 @@ export const SegmentedButtons = ({ segments, activeLink, buttonWidth }) => {
             isActive={isActive}
             href={segment.link}>
             <SegmentButton isActive={isActive} width={buttonWidth}>
+              {segment.icon && (
+                <Icon
+                  name={segment.icon}
+                  size={segment.iconSize}
+                  marginRight={5}
+                />
+              )}
               {segment.label}
             </SegmentButton>
           </SegmentButtonLink>
@@ -65,7 +74,8 @@ SegmentedButtons.propTypes = {
     shape({
       link: string.isRequired,
       label: string.isRequired,
-      icon: string.isRequired,
+      icon: string,
+      iconSize: number,
     })
   ).isRequired,
   activeLink: string.isRequired,

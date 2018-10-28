@@ -7,13 +7,11 @@ import {
   Section,
   H1,
   Paragraph,
-  PdfIcon,
   LinkWrapper,
   ParagraphLink,
 } from 'components/ui/base';
+import { Icon } from 'components/ui';
 import { TransparentShelf, ColoredShelf } from './Shelves';
-
-import styledTheme from 'styles/theme';
 
 const cameraDestructured = require('scenes/Home/assets/camera-destructured.svg');
 const isometricGradient = require('scenes/Home/assets/gradient-isometric.svg');
@@ -112,11 +110,12 @@ const TermsOfUseHolder = styled.div`
 `;
 
 const TermsOfUseLink = LinkWrapper.extend`
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-size: 0.875em;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   color: ${({ theme }) => theme.colors.primaryDarker};
-  margin-left: 8px;
 
   &:hover {
     opacity: 0.8;
@@ -164,8 +163,8 @@ export const HowWeWork = withRouteData(
             />
             <DottedDivider />
             <TermsOfUseHolder>
-              <PdfIcon color={styledTheme.colors.primaryDarker} />
               <TermsOfUseLink href={termsOfUseLink}>
+                <Icon name="pdf" size={20} marginRight={5} />
                 {termsOfUse}
               </TermsOfUseLink>
             </TermsOfUseHolder>

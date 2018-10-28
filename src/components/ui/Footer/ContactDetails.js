@@ -3,7 +3,7 @@ import { object } from 'prop-types';
 import styled from 'styles';
 import styledTheme from 'styles/theme';
 
-import { PlaceIcon } from './PlaceIcon';
+import { Icon } from 'components/ui';
 
 const ContactDetailsHolder = styled.div`
   display: flex;
@@ -58,11 +58,6 @@ const MapLink = AddressLink.extend`
   }
 `;
 
-const PlaceIconHolder = styled.div`
-  width: 15px;
-  margin-left: 10px;
-`;
-
 export const ContactDetails = ({ data }) => {
   return (
     <ContactDetailsHolder>
@@ -82,9 +77,7 @@ export const ContactDetails = ({ data }) => {
         <br />
         <MapLink href="/contact/warszawa">
           {data.warszawa.showOnMapLabel}
-          <PlaceIconHolder>
-            <PlaceIcon fill={styledTheme.colors.secondaryDarker} />
-          </PlaceIconHolder>
+          <Icon name="mapPin" size={16} marginLeft={5} />
         </MapLink>
       </AddressHolder>
       <AddressHolder>
@@ -109,9 +102,7 @@ export const ContactDetails = ({ data }) => {
           href="/contact/krakow"
           color={styledTheme.colors.primaryDarker}>
           {data.krakow.showOnMapLabel}
-          <PlaceIconHolder>
-            <PlaceIcon fill={styledTheme.colors.primaryDarker} />
-          </PlaceIconHolder>
+          <Icon name="mapPin" size={16} marginLeft={5} />
         </MapLink>
       </AddressHolder>
     </ContactDetailsHolder>
