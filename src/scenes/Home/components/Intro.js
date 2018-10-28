@@ -287,10 +287,8 @@ class Intro extends Component {
       window.matchMedia(`(max-width: ${styledTheme.breakpoints.small}px)`)
         .matches
     ) {
-      console.log('removing');
       this.video.parentNode.removeChild(this.video);
     } else {
-      console.log('setting preload');
       this.video.setAttribute('preload', 'auto');
       this.video.setAttribute('autoPlay', true);
     }
@@ -315,6 +313,7 @@ class Intro extends Component {
         <Row>
           <MainGraphicsHolder>
             <VideoHolder>
+              <PlaceholderPhoto />
               <Video
                 autoPlay={false}
                 muted
