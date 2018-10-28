@@ -288,6 +288,8 @@ class Intro extends Component {
         .matches
     ) {
       this.video.parentNode.removeChild(this.video);
+    } else {
+      this.video.setAttribute('preload', 'auto');
     }
   }
 
@@ -316,6 +318,7 @@ class Intro extends Component {
                 muted
                 loop
                 poster={mainPhoto}
+                preload="none"
                 innerRef={(el) => {
                   this.video = el;
                 }}>
