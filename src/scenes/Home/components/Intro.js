@@ -84,6 +84,7 @@ const MainGraphicsHolder = styled.div`
   position: relative;
   width: 760px;
   height: 420px;
+  transition: 0.2s ease all;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     height: 100vh;
