@@ -4,6 +4,8 @@ import { arrayOf, shape, string, number } from 'prop-types';
 
 import { Icon } from 'components/ui';
 
+import { getRgba } from 'styles/helpers';
+
 const SegmentedButtonsHolder = styled.div`
   display: flex;
   height: 47px;
@@ -27,6 +29,7 @@ const SegmentButton = styled.button`
 
   &:last-child {
     border-right: none;
+    border-left: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
@@ -36,7 +39,10 @@ const SegmentButton = styled.button`
 
 const SegmentButtonLink = styled.a`
   &:hover ${SegmentButton} {
-    opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
+    color: ${({ theme, isActive }) =>
+      isActive
+        ? theme.colors.brighter
+        : getRgba(theme.colors.secondaryDarker, 0.7)};
   }
 `;
 
