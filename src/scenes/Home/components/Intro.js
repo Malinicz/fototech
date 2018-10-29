@@ -27,6 +27,8 @@ const IntroHolder = Section.extend`
 `;
 
 const HeadingHolder = styled.div`
+  position: relative;
+  z-index: 100;
   display: flex;
   align-items: center;
   padding: 0 35px;
@@ -309,7 +311,8 @@ class Intro extends Component {
           <Heading>
             {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
           </Heading>
-          <StyledCallToActionButtonVideo>
+          <StyledCallToActionButtonVideo
+            onClick={() => history.push(navigation[2].slug)}>
             {callToActionButtonLabel}
           </StyledCallToActionButtonVideo>
         </HeadingHolder>
