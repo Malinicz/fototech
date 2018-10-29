@@ -8,6 +8,9 @@ import {
   MapPinIcon,
   ArrowRightIcon,
   DownloadIcon,
+  WrenchIcon,
+  DropIcon,
+  TargetIcon,
 } from './svgIcons';
 
 const icons = {
@@ -17,6 +20,9 @@ const icons = {
   mapPin: <MapPinIcon />,
   arrowRight: <ArrowRightIcon />,
   download: <DownloadIcon />,
+  wrench: <WrenchIcon />,
+  drop: <DropIcon />,
+  target: <TargetIcon />,
 };
 
 const IconHolder = styled.div`
