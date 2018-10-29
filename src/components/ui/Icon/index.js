@@ -7,6 +7,7 @@ import {
   ManWalkingIcon,
   MapPinIcon,
   ArrowRightIcon,
+  DownloadIcon,
 } from './svgIcons';
 
 const icons = {
@@ -15,6 +16,7 @@ const icons = {
   manWalking: <ManWalkingIcon />,
   mapPin: <MapPinIcon />,
   arrowRight: <ArrowRightIcon />,
+  download: <DownloadIcon />,
 };
 
 const IconHolder = styled.div`

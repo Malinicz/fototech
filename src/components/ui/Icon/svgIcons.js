@@ -47,6 +47,18 @@ export const MapPinIcon = () => {
   );
 };
 
+export const DownloadIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.353 15">
+      <path
+        id="ic_file_download_24px"
+        d="M17.353,8.294H13.824V3H8.529V8.294H5l6.176,6.176ZM5,16.235V18H17.353V16.235Z"
+        transform="translate(-5 -3)"
+      />
+    </svg>
+  );
+};
+
 export const ArrowRightIcon = () => {
   return (
     <svg

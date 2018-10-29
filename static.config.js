@@ -48,6 +48,13 @@ export default {
         }),
       },
       {
+        path: contentPL.shared.navigation[2].sections[1].slug,
+        component: 'src/scenes/HowToDeliver/DeliverIndividually',
+        getData: async () => ({
+          routeData: contentPL.howToDeliver,
+        }),
+      },
+      {
         is404: true,
         component: 'src/scenes/404',
       },

@@ -7,7 +7,7 @@ import {
   Section,
   H1,
   Paragraph,
-  LinkWrapper,
+  BlockLink,
   ParagraphLink,
 } from 'components/ui/base';
 import { Icon } from 'components/ui';
@@ -109,19 +109,6 @@ const TermsOfUseHolder = styled.div`
   }
 `;
 
-const TermsOfUseLink = LinkWrapper.extend`
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 0.875em;
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  color: ${({ theme }) => theme.colors.primaryDarker};
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
 const IsometricGradient = styled.img`
   position: absolute;
   width: 2000px;
@@ -163,10 +150,10 @@ export const HowWeWork = withRouteData(
             />
             <DottedDivider />
             <TermsOfUseHolder>
-              <TermsOfUseLink href={termsOfUseLink}>
+              <BlockLink href={termsOfUseLink}>
                 <Icon name="pdf" size={20} marginRight={5} />
                 {termsOfUse}
-              </TermsOfUseLink>
+              </BlockLink>
             </TermsOfUseHolder>
           </Article>
         </ContentHolder>

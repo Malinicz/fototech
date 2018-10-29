@@ -11,3 +11,16 @@ export const LinkWrapper = styled.a`
 export const ParagraphLink = LinkWrapper.extend`
   color: ${({ theme }) => theme.colors.primaryDarker};
 `;
+
+export const BlockLink = LinkWrapper.extend`
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  color: ${({ theme }) => theme.colors.primaryDarker};
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
