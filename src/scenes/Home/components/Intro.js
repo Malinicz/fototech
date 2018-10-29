@@ -28,7 +28,7 @@ const IntroHolder = Section.extend`
 
 const HeadingHolder = styled.div`
   position: relative;
-  z-index: 100;
+  z-index: 30;
   display: flex;
   align-items: center;
   padding: 0 35px;
