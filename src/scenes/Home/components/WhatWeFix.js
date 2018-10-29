@@ -83,6 +83,7 @@ const StyledCard = Card.extend`
   height: 250px;
   background-color: ${({ theme }) => theme.colors.brightest};
   overflow: hidden;
+  cursor: auto;
 
   &:hover ${IsometricCardBackground} {
     transform: translate3d(50px, -135px, 0) rotate(30deg);

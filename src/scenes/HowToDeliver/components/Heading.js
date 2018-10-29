@@ -35,9 +35,10 @@ export const Heading = withRouteData(
 
 Heading.defaultProps = {
   routeData: {},
+  history: {},
 };
 
 Heading.propTypes = {
-  history: object.isRequired,
+  history: object,
   routeData: object,
 };

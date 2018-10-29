@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouteData } from 'react-static';
+import { withRouteData, withSiteData } from 'react-static';
 import styled from 'styles';
 import Markdown from 'react-markdown';
 
@@ -72,36 +72,41 @@ const StyledCallToActionButton = CallToActionButton.extend`
   margin-top: 30px;
 `;
 
-export const Valuation = withRouteData(
-  ({
-    routeData: {
-      valuationHeading,
-      valuationParagraphs,
-      callToActionButtonLabel,
-    },
-  }) => {
-    return (
-      <ValuationHolder>
-        <ContentHolder>
-          <Article>
-            <ArticleTitle>{valuationHeading}</ArticleTitle>
-            <Markdown
-              source={valuationParagraphs[0]}
-              renderers={{
-                paragraph: Paragraph,
-                root: React.Fragment,
-              }}
-            />
-            <StyledCallToActionButton>
-              {callToActionButtonLabel}
-            </StyledCallToActionButton>
-          </Article>
-        </ContentHolder>
-        <GraphicsHolder>
-          <CameraMirrorless src={cameraMirrorless} alt="" />
-          <TransparentShelfWithShadow />
-        </GraphicsHolder>
-      </ValuationHolder>
-    );
-  }
+export const Valuation = withSiteData(
+  withRouteData(
+    ({
+      siteData: { navigation },
+      routeData: {
+        valuationHeading,
+        valuationParagraphs,
+        callToActionButtonLabel,
+      },
+      history,
+    }) => {
+      return (
+        <ValuationHolder>
+          <ContentHolder>
+            <Article>
+              <ArticleTitle>{valuationHeading}</ArticleTitle>
+              <Markdown
+                source={valuationParagraphs[0]}
+                renderers={{
+                  paragraph: Paragraph,
+                  root: React.Fragment,
+                }}
+              />
+              <StyledCallToActionButton
+                onClick={() => history.push(navigation[2].slug)}>
+                {callToActionButtonLabel}
+              </StyledCallToActionButton>
+            </Article>
+          </ContentHolder>
+          <GraphicsHolder>
+            <CameraMirrorless src={cameraMirrorless} alt="" />
+            <TransparentShelfWithShadow />
+          </GraphicsHolder>
+        </ValuationHolder>
+      );
+    }
+  )
 );

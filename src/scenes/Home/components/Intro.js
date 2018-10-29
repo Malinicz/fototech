@@ -250,6 +250,7 @@ const LinkToVenue = LinkWrapper.extend`
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  color: ${({ theme }) => theme.colors.darker};
 
   &:hover ${LinkWithArrowLabel} {
     padding-right: 5px;
@@ -297,8 +298,9 @@ class Intro extends Component {
 
   render() {
     const {
-      siteData: { contactDetails },
+      siteData: { contactDetails, navigation },
       routeData: { mainHeading, linkToVenueLabel, callToActionButtonLabel },
+      history,
     } = this.props;
 
     return (
@@ -334,7 +336,7 @@ class Intro extends Component {
                 <City>{contactDetails.warszawa.city}</City>
                 <Street>{contactDetails.warszawa.street}</Street>
                 <Divider />
-                <LinkToVenue>
+                <LinkToVenue href={navigation[5].sections[1].slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
@@ -343,13 +345,14 @@ class Intro extends Component {
                 <City>{contactDetails.krakow.city}</City>
                 <Street>{contactDetails.krakow.street}</Street>
                 <Divider />
-                <LinkToVenue>
+                <LinkToVenue href={navigation[5].sections[0].slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
               </VenueHolder>
             </VenuesHolder>
-            <StyledCallToActionButton>
+            <StyledCallToActionButton
+              onClick={() => history.push(navigation[2].slug)}>
               {callToActionButtonLabel}
             </StyledCallToActionButton>
           </CallToActionArea>
@@ -364,9 +367,11 @@ export default withSiteData(withRouteData(Intro));
 Intro.defaultProps = {
   siteData: {},
   routeData: {},
+  history: {},
 };
 
 Intro.propTypes = {
   siteData: object,
   routeData: object,
+  history: object,
 };
