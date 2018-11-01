@@ -5,8 +5,8 @@ import client from './src/services/contentfulClient';
 
 import contentPL from './src/data/pl';
 
-const siteRoot = 'https://fotonaprawa.netlify.com';
-const stagingSiteRoot = 'https://fotonaprawa.netlify.com';
+const siteRoot = 'www.fotonaprawa.pl';
+const stagingSiteRoot = 'www.fotonaprawa.pl';
 const basePath = '';
 const stagingBasePath = '';
 
