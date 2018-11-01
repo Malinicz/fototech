@@ -5,7 +5,7 @@ import client from './src/services/contentfulClient';
 
 import contentPL from './src/data/pl';
 
-const siteRoot = 'https://www.fotonaprawa.pl';
+const siteRoot = 'http://www.fotonaprawa.pl';
 const stagingSiteRoot = '';
 const basePath = '';
 const stagingBasePath = '';
