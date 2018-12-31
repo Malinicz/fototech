@@ -11,7 +11,7 @@ const ContentSection = styled(Section)`
   justify-content: center;
 `;
 
-class Services extends Component {
+class Cleaning extends Component {
   render() {
     // const {
     //   siteData: {},
@@ -21,7 +21,7 @@ class Services extends Component {
     return (
       <Layout>
         <Heading />
-        <ContentSection>naprawa</ContentSection>
+        <ContentSection>czyszczenie</ContentSection>
       </Layout>
     );
   }
@@ -37,4 +37,4 @@ class Services extends Component {
 //   routeData: object,
 // };
 
-export default withSiteData(withRouteData(Services));
+export default withSiteData(withRouteData(Cleaning));

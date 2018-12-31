@@ -69,6 +69,20 @@ export default {
         }),
       },
       {
+        path: contentPL.shared.navigation[1].sections[1].slug,
+        component: 'src/scenes/Services/Cleaning',
+        getData: async () => ({
+          routeData: contentPL.services,
+        }),
+      },
+      {
+        path: contentPL.shared.navigation[1].sections[2].slug,
+        component: 'src/scenes/Services/Calibration',
+        getData: async () => ({
+          routeData: contentPL.services,
+        }),
+      },
+      {
         is404: true,
         component: 'src/scenes/404',
       },

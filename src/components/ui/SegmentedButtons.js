@@ -4,16 +4,12 @@ import { arrayOf, shape, string, number } from 'prop-types';
 
 import { Icon } from 'components/ui';
 
-import { getRgba } from 'styles/helpers';
-
 const SegmentedButtonsHolder = styled.div`
   display: flex;
   height: 47px;
-  border: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
-  border-radius: 5px;
 `;
 
-const SegmentButton = styled.button`
+const SegmentButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,27 +18,36 @@ const SegmentButton = styled.button`
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.brightest : theme.colors.secondaryDarker};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  border-right: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
+  border-top: 3px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom: 3px solid ${({ theme }) => theme.colors.secondary};
+  border-right: 1.5px solid ${({ theme }) => theme.colors.secondary};
+  border-left: 1.5px solid ${({ theme }) => theme.colors.secondary};
   background-color: ${({ theme, isActive }) =>
     isActive ? theme.colors.secondary : 'transparent'};
   cursor: pointer;
 
+  &:first-child {
+    border-left: 3px solid ${({ theme }) => theme.colors.secondary};
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
   &:last-child {
-    border-right: none;
-    border-left: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
+    border-right: 3px solid ${({ theme }) => theme.colors.secondary};
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &:hover {
+    opacity: ${({ isActive }) => (isActive ? 0.8 : 1)};
+  }
+
+  &:focus {
+    z-index: 1;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     width: 150px;
-  }
-`;
-
-const SegmentButtonLink = styled.a`
-  &:hover ${SegmentButton} {
-    color: ${({ theme, isActive }) =>
-      isActive
-        ? theme.colors.brighter
-        : getRgba(theme.colors.secondaryDarker, 0.7)};
   }
 `;
 
@@ -54,21 +59,19 @@ export const SegmentedButtons = ({ segments, activeLink, buttonWidth }) => {
           ? activeLink === segment.link || activeLink === segment.initialLink
           : activeLink === segment.link;
         return (
-          <SegmentButtonLink
-            key={segment.link}
+          <SegmentButton
+            href={segment.link}
             isActive={isActive}
-            href={segment.link}>
-            <SegmentButton isActive={isActive} width={buttonWidth}>
-              {segment.icon && (
-                <Icon
-                  name={segment.icon}
-                  size={segment.iconSize}
-                  marginRight={5}
-                />
-              )}
-              {segment.label}
-            </SegmentButton>
-          </SegmentButtonLink>
+            width={buttonWidth}>
+            {segment.icon && (
+              <Icon
+                name={segment.icon}
+                size={segment.iconSize}
+                marginRight={5}
+              />
+            )}
+            {segment.label}
+          </SegmentButton>
         );
       })}
     </SegmentedButtonsHolder>
