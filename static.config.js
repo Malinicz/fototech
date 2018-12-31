@@ -65,31 +65,43 @@ export default {
         }),
       },
       {
-        path: contentPL.shared.navigation[1].slug,
+        path: pl.shared.navigation.services.slug,
         component: 'src/scenes/Services',
         getData: async () => ({
-          routeData: contentPL.services,
+          routeData: pl.services,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.services.sections.repair.slug
+          }`,
         }),
       },
       {
-        path: contentPL.shared.navigation[1].sections[0].slug,
+        path: pl.shared.navigation.services.sections.repair.slug,
         component: 'src/scenes/Services',
         getData: async () => ({
-          routeData: contentPL.services,
+          routeData: pl.services,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.services.sections.repair.slug
+          }`,
         }),
       },
       {
-        path: contentPL.shared.navigation[1].sections[1].slug,
+        path: pl.shared.navigation.services.sections.cleaning.slug,
         component: 'src/scenes/Services/Cleaning',
         getData: async () => ({
-          routeData: contentPL.services,
+          routeData: pl.services,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.services.sections.cleaning.slug
+          }`,
         }),
       },
       {
-        path: contentPL.shared.navigation[1].sections[2].slug,
+        path: pl.shared.navigation.services.sections.calibration.slug,
         component: 'src/scenes/Services/Calibration',
         getData: async () => ({
-          routeData: contentPL.services,
+          routeData: pl.services,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.services.sections.calibration.slug
+          }`,
         }),
       },
       {

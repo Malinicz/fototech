@@ -1,4 +1,7 @@
+import navigation from './shared/navigation';
+
 export default {
+  navLinkActivityUrl: navigation.home.slug,
   mainHeading: ['Serwis', 'fotograficzny'],
   linkToVenueLabel: 'Sprawdź',
   callToActionButtonLabel: 'Chcę dostarczyć sprzęt',

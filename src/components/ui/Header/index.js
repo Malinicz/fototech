@@ -122,7 +122,7 @@ class Header extends Component {
   render() {
     const { isOnTop, isMobileMenuActive } = this.state;
     const {
-      match: { url },
+      routeData: { navLinkActivityUrl },
       siteData: { navigation, header },
     } = this.props;
 
@@ -136,7 +136,7 @@ class Header extends Component {
           />
           <HeaderNavigation
             navLinks={navigation}
-            activeLink={url}
+            activeLink={navLinkActivityUrl}
             isMobileMenuActive={isMobileMenuActive}
           />
           <MobileMenu onClick={this.toggleMobileMenu}>
@@ -152,11 +152,12 @@ class Header extends Component {
 
 Header.defaultProps = {
   siteData: {},
+  routeData: {},
 };
 
 Header.propTypes = {
   siteData: object,
-  match: object.isRequired,
+  routeData: object,
 };
 
 export default withSiteData(withRouteData(Header));

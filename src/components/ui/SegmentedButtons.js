@@ -18,22 +18,22 @@ const SegmentButton = styled.a`
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.brightest : theme.colors.secondaryDarker};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  border-top: 3px solid ${({ theme }) => theme.colors.secondary};
-  border-bottom: 3px solid ${({ theme }) => theme.colors.secondary};
-  border-right: 1.5px solid ${({ theme }) => theme.colors.secondary};
-  border-left: 1.5px solid ${({ theme }) => theme.colors.secondary};
+  border-top: 2px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
+  border-right: 1px solid ${({ theme }) => theme.colors.secondary};
+  border-left: 1px solid ${({ theme }) => theme.colors.secondary};
   background-color: ${({ theme, isActive }) =>
     isActive ? theme.colors.secondary : 'transparent'};
   cursor: pointer;
 
   &:first-child {
-    border-left: 3px solid ${({ theme }) => theme.colors.secondary};
+    border-left: 2px solid ${({ theme }) => theme.colors.secondary};
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
 
   &:last-child {
-    border-right: 3px solid ${({ theme }) => theme.colors.secondary};
+    border-right: 2px solid ${({ theme }) => theme.colors.secondary};
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }

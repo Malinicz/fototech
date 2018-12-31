@@ -1,4 +1,7 @@
+import navigation from './shared/navigation';
+
 export default {
+  navLinkActivityUrl: navigation.howToDeliver.slug,
   segmentNavigation: [
     {
       initialLink: '/jak-dostarczyc',
