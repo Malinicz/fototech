@@ -1,0 +1,186 @@
+{
+  "shared": {
+    "language": "pl",
+    "header": {
+      "companyLogoAlt": "fototech logo"
+    },
+    "footer": {
+      "termsOfUse": {
+        "label": "Regulamin",
+        "url": "/"
+      },
+      "siteMap": {
+        "label": "Mapa strony",
+        "url": "/"
+      },
+      "allRightReservedInfo": "Wszelkie prawa zastrzeżone © Fototech 2018"
+    },
+    "navigation": [
+      { "id": 1, "label": "Strona główna", "slug": "/" },
+      {
+        "id": 2,
+        "label": "Usługi",
+        "slug": "/uslugi",
+        "sections": [
+          { "id": 21, "label": "Naprawa", "slug": "/uslugi/naprawa" },
+          { "id": 22, "label": "Czyszczenie", "slug": "/uslugi/czyszczenie" },
+          { "id": 23, "label": "Kalibracja", "slug": "/uslugi/kalibracja" }
+        ]
+      },
+      {
+        "id": 3,
+        "label": "Jak dostarczyć",
+        "slug": "/jak-dostarczyc",
+        "sections": [
+          { "id": 31, "label": "Pocztą", "slug": "/jak-dostarczyc/poczta" },
+          {
+            "id": 32,
+            "label": "Osobiście",
+            "slug": "/jak-dostarczyc/osobiscie"
+          }
+        ]
+      },
+      { "id": 4, "label": "Sklep", "url": "http://www.fototech-serwis.pl" },
+      { "id": 5, "label": "Blog", "slug": "/blog" },
+      {
+        "id": 6,
+        "label": "Kontakt",
+        "slug": "/kontakt",
+        "sections": [
+          { "id": 61, "label": "Kraków", "slug": "/kontakt/krakow" },
+          { "id": 62, "label": "Warszawa", "slug": "/kontakt/warszawa" }
+        ]
+      }
+    ],
+    "contactDetails": {
+      "warszawa": {
+        "label": "Fototech Warszawa",
+        "street": "ul. Sabały 58",
+        "postalCode": "02-174",
+        "city": "Warszawa",
+        "phone": "+48 (22) 243 02 10",
+        "email": "warszawa@fotonaprawa.pl",
+        "showOnMapLabel": "Pokaż na mapie"
+      },
+      "krakow": {
+        "label": "Fototech Kraków",
+        "street": "ul. Jana Długosza 13",
+        "postalCode": "30-512",
+        "city": "Kraków",
+        "phone": "+48 669 577 755",
+        "email": "krakow@fotonaprawa.pl",
+        "showOnMapLabel": "Pokaż na mapie"
+      }
+    },
+    "socialMediaUrls": {
+      "facebook": "https://www.facebook.com/FototechSerwis",
+      "googlePlus": "https://plus.google.com/+FotonaprawaPL",
+      "youTube": "https://www.youtube.com/user/serwisFOTOTECH"
+    }
+  },
+  "home": {
+    "mainHeading": ["Serwis", "fotograficzny"],
+    "linkToVenueLabel": "Sprawdź",
+    "callToActionButtonLabel": "Chcę dostarczyć sprzęt",
+    "whatWeFixHeading": "Naprawiamy",
+    "whatWeFixItems": [
+      "Lustrzanki i bezlusterkowce",
+      "Aparaty i obiektywy analogowe",
+      "Obiektywy",
+      "Lampy błyskowe",
+      "Kamery cyfrowe"
+    ],
+    "howWeWorkHeading": "Jak działamy",
+    "howWeWorkParagraphs": [
+      "Mając na uwadze stosunkowo niskie ceny zakupu aparatów fotograficznych, przy wykonywaniu wycen napraw staramy się __rozsądnie kalkulować koszty usług__. Najpierw podejmujemy próbę diagnozy oraz naprawy usterki na poziomie wymiany pojedynczych elementów elektronicznych, a nie całych modułów. Takie działanie pozwala nam na __znaczne obniżenie końcowej ceny usługi__ oraz __skrócenie czasu naprawy__.",
+      "Na wszystkie naprawy udzielamy 6 miesięcy gwarancji. Więcej informacji w [regulaminie](#)."
+    ],
+    "termsOfUse": "Regulamin",
+    "termsOfUseLink": "#",
+    "valuationHeading": "Wycena",
+    "valuationParagraphs": [
+      "Wycena usługi naprawy jest u nas __bezpłatna__. Po dostarczeniu uszkodzonego sprzętu, zostaje on poddany testom, diagnozie usterki, która często wymaga demontażu podzespołów i w końcu wycenie, która wysyłana jest do Państwa w ciągu __1 dnia roboczego__. Po otrzymaniu od Państwa pozytywnej odpowiedzi, przystępujemy do naprawy, która trwa zazwyczaj kilka dni roboczych."
+    ],
+    "newsHeading": "Aktualności",
+    "stayInTouchHeading": "Pozostańmy w kontakcie!",
+    "stayInTouchParagraphs": [
+      "Na [facebooku](https://www.facebook.com/FototechSerwis) i [google+](https://plus.google.com/+FotonaprawaPL) znajdziecie najświeższe aktualności, informacje o promocjach oraz bezcenne porady.",
+      "Na kanale [youtube](https://www.youtube.com/user/serwisFOTOTECH) zobaczycie jak naprawiamy sprzęt fotograficzny i jakiej precyzji to od nas wymaga :)"
+    ]
+  },
+  "howToDeliver": {
+    "segmentNavigation": [
+      {
+        "initialLink": "/jak-dostarczyc",
+        "link": "/jak-dostarczyc/poczta",
+        "label": "Pocztą",
+        "icon": "mail",
+        "iconSize": 20
+      },
+      {
+        "link": "/jak-dostarczyc/osobiscie",
+        "label": "Osobiście",
+        "icon": "manWalking",
+        "iconSize": 14
+      }
+    ],
+    "postOfficeSteps": [
+      {
+        "title": "Wydrukuj i wypełnij formularz",
+        "description": [
+          "Podaj nam szczegóły dotyczące Twojego sprzętu, wykrytej usterki oraz dane kontaktowe."
+        ],
+        "buttonLabel": "formularz zgłoszeniowy"
+      },
+      {
+        "title": "Zapakuj swój sprzęt",
+        "description": [
+          "Zapakuj swój sprzęt tak, aby bezpiecznie do nas dotarł. Prosimy o nie dołączanie do przesyłki akcesoriów nie mających bezpośredniego związku ze zgłaszaną usterką - pasków na szyję i rękę, osłon przeciwsłonecznych, muszli ocznych, instrukcji, baterii AA itp."
+        ]
+      },
+      {
+        "title": "Wybierz najbliszy salon"
+      },
+      {
+        "title": "Wyślij paczkę",
+        "description": [
+          "Nie zapomnij dołączyć formularza zgłoszeniowego! Wycenę wyślemy poprzez e-mail lub sms tak szybko, jak to możliwe."
+        ]
+      }
+    ],
+    "deliverIndividuallySteps": [
+      {
+        "title": "Wybierz salon"
+      },
+      {
+        "title": "Odwiedź nas!",
+        "description": [
+          "Przyjdź i pokaż nam, co się zepsuło. Jeśli planujesz przyjechać samochodem, przed salonem możesz spokojnie zaparkować swoje auto wzdłuż chodnika."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "segmentNavigation": [
+      {
+        "initialLink": "/uslugi",
+        "link": "/uslugi/naprawa",
+        "label": "Naprawa",
+        "icon": "wrench",
+        "iconSize": 20
+      },
+      {
+        "link": "/uslugi/czyszczenie",
+        "label": "Czyszczenie",
+        "icon": "drop",
+        "iconSize": 14
+      },
+      {
+        "link": "/uslugi/kalibracja",
+        "label": "Kalibracja",
+        "icon": "target",
+        "iconSize": 14
+      }
+    ]
+  }
+}
