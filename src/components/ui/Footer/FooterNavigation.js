@@ -97,7 +97,8 @@ export const FooterNavigation = ({ navLinks }) => {
   return (
     <FooterNavigationHolder>
       <NavElementsHolder>
-        {navLinks.map((navLink, index) => {
+        {Object.keys(navLinks).map((navSection, index) => {
+          const navLink = navLinks[navSection];
           return (
             <React.Fragment key={navLink.id}>
               <Divider isVisible={index !== 0} />
@@ -109,7 +110,8 @@ export const FooterNavigation = ({ navLinks }) => {
                 </NavLink>
                 <NavSubElementsHolder>
                   {navLink.sections &&
-                    navLink.sections.map((section) => {
+                    Object.keys(navLink.sections).map((sectionName) => {
+                      const section = navLink.sections[sectionName];
                       return (
                         <NavSubLink key={section.id} href={section.slug}>
                           <NavSubElement>{section.label}</NavSubElement>

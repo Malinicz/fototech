@@ -1,5 +1,6 @@
 import React from 'react';
 import { node } from 'prop-types';
+import { Head, withRouteData } from 'react-static';
 
 import { Section } from 'components/ui/base';
 import { Header, Footer } from 'components/ui';
@@ -20,15 +21,18 @@ const Main = MainBase.extend`
   }
 `;
 
-export const Layout = ({ children }) => {
+export const Layout = withRouteData((props) => {
   return (
     <React.Fragment>
+      <Head>
+        <link rel="canonical" href={props.canonicalUrl} />
+      </Head>
       <Header />
-      <Main>{children}</Main>
+      <Main>{props.children}</Main>
       <Footer />
     </React.Fragment>
   );
-};
+});
 
 Layout.propTypes = {
   children: node.isRequired,

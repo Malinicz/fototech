@@ -96,7 +96,7 @@ export const Valuation = withSiteData(
                 }}
               />
               <StyledCallToActionButton
-                onClick={() => history.push(navigation[2].slug)}>
+                onClick={() => history.push(navigation.howToDeliver.slug)}>
                 {callToActionButtonLabel}
               </StyledCallToActionButton>
             </Article>

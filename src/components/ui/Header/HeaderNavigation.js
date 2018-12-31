@@ -73,7 +73,8 @@ export const HeaderNavigation = ({
   return (
     <HeaderNavigationHolder isMobileMenuActive={isMobileMenuActive}>
       <NavElementsHolder>
-        {navLinks.map((navLink, index) => {
+        {Object.keys(navLinks).map((navSection, index) => {
+          const navLink = navLinks[navSection];
           const isActive = navLink.slug === activeLink;
           return (
             <React.Fragment key={navLink.id}>

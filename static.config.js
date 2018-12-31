@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components';
 
 import client from './src/services/contentfulClient';
 
-import contentPL from './src/data/pl';
+import pl from './src/data/pl';
 
 const siteRoot = 'https://www.fotonaprawa.pl';
 const stagingSiteRoot = '';
@@ -16,7 +16,7 @@ export default {
   basePath,
   stagingBasePath,
   getSiteData: async () => ({
-    siteData: contentPL.shared,
+    siteData: pl.shared,
   }),
   getRoutes: async () => {
     const contentfulData = await client.getEntries();
@@ -26,32 +26,42 @@ export default {
     );
     return [
       {
-        path: contentPL.shared.navigation[0].slug,
+        path: pl.shared.navigation.home.slug,
         component: 'src/scenes/Home',
-        getData: async () => ({
-          routeData: contentPL.home,
+        getData: () => ({
+          routeData: pl.home,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.home.slug}`,
           news,
         }),
       },
       {
-        path: contentPL.shared.navigation[2].slug,
+        path: pl.shared.navigation.howToDeliver.slug,
         component: 'src/scenes/HowToDeliver',
-        getData: async () => ({
-          routeData: contentPL.howToDeliver,
+        getData: () => ({
+          routeData: pl.howToDeliver,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.howToDeliver.sections.mail.slug
+          }`,
         }),
       },
       {
-        path: contentPL.shared.navigation[2].sections[0].slug,
+        path: pl.shared.navigation.howToDeliver.sections.mail.slug,
         component: 'src/scenes/HowToDeliver',
-        getData: async () => ({
-          routeData: contentPL.howToDeliver,
+        getData: () => ({
+          routeData: pl.howToDeliver,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.howToDeliver.sections.mail.slug
+          }`,
         }),
       },
       {
-        path: contentPL.shared.navigation[2].sections[1].slug,
+        path: pl.shared.navigation.howToDeliver.sections.individually.slug,
         component: 'src/scenes/HowToDeliver/DeliverIndividually',
-        getData: async () => ({
-          routeData: contentPL.howToDeliver,
+        getData: () => ({
+          routeData: pl.howToDeliver,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.howToDeliver.sections.individually.slug
+          }`,
         }),
       },
       {

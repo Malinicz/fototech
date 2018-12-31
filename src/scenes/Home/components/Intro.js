@@ -312,7 +312,7 @@ class Intro extends Component {
             {mainHeading[0]} <Thin>{mainHeading[1]}</Thin>
           </Heading>
           <StyledCallToActionButtonVideo
-            onClick={() => history.push(navigation[2].slug)}>
+            onClick={() => history.push(navigation.howToDeliver.slug)}>
             {callToActionButtonLabel}
           </StyledCallToActionButtonVideo>
         </HeadingHolder>
@@ -339,7 +339,7 @@ class Intro extends Component {
                 <City>{contactDetails.warszawa.city}</City>
                 <Street>{contactDetails.warszawa.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation[5].sections[1].slug}>
+                <LinkToVenue href={navigation.contact.sections.warsaw.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
@@ -348,14 +348,14 @@ class Intro extends Component {
                 <City>{contactDetails.krakow.city}</City>
                 <Street>{contactDetails.krakow.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation[5].sections[0].slug}>
+                <LinkToVenue href={navigation.contact.sections.cracow.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
               </VenueHolder>
             </VenuesHolder>
             <StyledCallToActionButton
-              onClick={() => history.push(navigation[2].slug)}>
+              onClick={() => history.push(navigation.howToDeliver.slug)}>
               {callToActionButtonLabel}
             </StyledCallToActionButton>
           </CallToActionArea>
