@@ -30,8 +30,8 @@ export default {
     label: 'Kontakt',
     slug: '/kontakt',
     sections: {
-      cracow: { id: 61, label: 'Kraków', slug: '/kontakt/krakow' },
-      warsaw: { id: 62, label: 'Warszawa', slug: '/kontakt/warszawa' },
+      krakow: { id: 61, label: 'Kraków', slug: '/kontakt/krakow' },
+      warszawa: { id: 62, label: 'Warszawa', slug: '/kontakt/warszawa' },
     },
   },
 };

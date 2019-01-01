@@ -1,4 +1,4 @@
-import navigation from './shared/navigation';
+import navigation from '../shared/navigation';
 
 export default {
   navLinkActivityUrl: navigation.howToDeliver.slug,

@@ -6,3 +6,4 @@ export { Paragraph } from './Paragraph';
 export { LinkWrapper, ParagraphLink, BlockLink } from './LinkWrappers';
 export { MaxWidthWrapper } from './MaxWidthWrapper';
 export { Card } from './Card';
+export { Form, InputGroup, Input, InputLabel, TextArea } from './Form';

@@ -60,6 +60,7 @@ export const SegmentedButtons = ({ segments, activeLink, buttonWidth }) => {
           : activeLink === segment.link;
         return (
           <SegmentButton
+            key={segment.label}
             href={segment.link}
             isActive={isActive}
             width={buttonWidth}>

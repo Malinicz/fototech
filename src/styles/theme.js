@@ -6,6 +6,7 @@ const theme = {
   colors: {
     brightest: '#ffffff',
     brighter: '#F7F7F7',
+    bright: '#d1d1d1',
     dark: '#939393',
     darker: '#363636',
     darkest: '#000000',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string, bool } from 'prop-types';
+import { object, string, bool } from 'prop-types';
 import styled from 'styles';
 
 const HeaderNavigationHolder = styled.nav`
@@ -94,7 +94,7 @@ export const HeaderNavigation = ({
 };
 
 HeaderNavigation.propTypes = {
-  navLinks: array.isRequired,
+  navLinks: object.isRequired,
   activeLink: string.isRequired,
   isMobileMenuActive: bool.isRequired,
 };

@@ -4,6 +4,9 @@ import { getRgba } from 'styles/helpers';
 const MAX_BUTTON_WIDTH = 300;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   height: 47px;
   min-width: 230px;
@@ -33,7 +36,7 @@ export const Button = styled.button`
     width: ${MAX_BUTTON_WIDTH}px;
     height: ${MAX_BUTTON_WIDTH}px;
     border-radius: ${MAX_BUTTON_WIDTH}px;
-    background: ${({ theme }) => theme.colors.brightest};
+    background: ${({ theme }) => theme.colors.bright};
     transition: all 0.6s;
     opacity: 0;
   }
@@ -45,5 +48,10 @@ export const Button = styled.button`
     transition: 0s;
     box-shadow: ${({ theme }) =>
       `0 3px 10px 0px ${getRgba(theme.colors.darkest, 0.2)}`};
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.bright};
+    cursor: not-allowed;
   }
 `;

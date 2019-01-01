@@ -39,9 +39,7 @@ export default {
         component: 'src/scenes/HowToDeliver',
         getData: () => ({
           routeData: pl.howToDeliver,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.howToDeliver.sections.mail.slug
-          }`,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.howToDeliver.slug}`,
         }),
       },
       {
@@ -49,9 +47,7 @@ export default {
         component: 'src/scenes/HowToDeliver',
         getData: () => ({
           routeData: pl.howToDeliver,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.howToDeliver.sections.mail.slug
-          }`,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.howToDeliver.slug}`,
         }),
       },
       {
@@ -67,27 +63,23 @@ export default {
       {
         path: pl.shared.navigation.services.slug,
         component: 'src/scenes/Services',
-        getData: async () => ({
+        getData: () => ({
           routeData: pl.services,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.services.sections.repair.slug
-          }`,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.services.slug}`,
         }),
       },
       {
         path: pl.shared.navigation.services.sections.repair.slug,
         component: 'src/scenes/Services',
-        getData: async () => ({
+        getData: () => ({
           routeData: pl.services,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.services.sections.repair.slug
-          }`,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.services.slug}`,
         }),
       },
       {
         path: pl.shared.navigation.services.sections.cleaning.slug,
         component: 'src/scenes/Services/Cleaning',
-        getData: async () => ({
+        getData: () => ({
           routeData: pl.services,
           canonicalUrl: `${siteRoot}${
             pl.shared.navigation.services.sections.cleaning.slug
@@ -97,10 +89,36 @@ export default {
       {
         path: pl.shared.navigation.services.sections.calibration.slug,
         component: 'src/scenes/Services/Calibration',
-        getData: async () => ({
+        getData: () => ({
           routeData: pl.services,
           canonicalUrl: `${siteRoot}${
             pl.shared.navigation.services.sections.calibration.slug
+          }`,
+        }),
+      },
+      {
+        path: pl.shared.navigation.contact.slug,
+        component: 'src/scenes/Contact',
+        getData: () => ({
+          routeData: pl.contact,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.contact.slug}`,
+        }),
+      },
+      {
+        path: pl.shared.navigation.contact.sections.warszawa.slug,
+        component: 'src/scenes/Contact',
+        getData: () => ({
+          routeData: pl.contact,
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.contact.slug}`,
+        }),
+      },
+      {
+        path: pl.shared.navigation.contact.sections.krakow.slug,
+        component: 'src/scenes/Contact/ContactKrakow',
+        getData: () => ({
+          routeData: pl.contact,
+          canonicalUrl: `${siteRoot}${
+            pl.shared.navigation.contact.sections.krakow.slug
           }`,
         }),
       },

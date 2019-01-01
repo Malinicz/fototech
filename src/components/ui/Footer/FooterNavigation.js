@@ -1,5 +1,5 @@
 import React from 'react';
-import { array } from 'prop-types';
+import { object } from 'prop-types';
 import styled from 'styles';
 
 const FooterNavigationHolder = styled.nav`
@@ -129,5 +129,5 @@ export const FooterNavigation = ({ navLinks }) => {
 };
 
 FooterNavigation.propTypes = {
-  navLinks: array.isRequired,
+  navLinks: object.isRequired,
 };

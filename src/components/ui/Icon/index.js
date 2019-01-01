@@ -11,6 +11,9 @@ import {
   WrenchIcon,
   DropIcon,
   TargetIcon,
+  SendIcon,
+  CheckMarkIcon,
+  CloseIcon,
 } from './svgIcons';
 
 const icons = {
@@ -23,6 +26,9 @@ const icons = {
   wrench: <WrenchIcon />,
   drop: <DropIcon />,
   target: <TargetIcon />,
+  send: <SendIcon />,
+  checkmark: <CheckMarkIcon />,
+  close: <CloseIcon />,
 };
 
 const IconHolder = styled.div`

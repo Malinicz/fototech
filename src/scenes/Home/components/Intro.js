@@ -339,7 +339,7 @@ class Intro extends Component {
                 <City>{contactDetails.warszawa.city}</City>
                 <Street>{contactDetails.warszawa.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation.contact.sections.warsaw.slug}>
+                <LinkToVenue href={navigation.contact.sections.warszawa.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
@@ -348,7 +348,7 @@ class Intro extends Component {
                 <City>{contactDetails.krakow.city}</City>
                 <Street>{contactDetails.krakow.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation.contact.sections.cracow.slug}>
+                <LinkToVenue href={navigation.contact.sections.krakow.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
