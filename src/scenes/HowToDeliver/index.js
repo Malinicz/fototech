@@ -8,6 +8,8 @@ import { Layout, Icon } from 'components/ui';
 import { SingleStep, StepperHolder, Heading } from './components';
 import { StepAddresses } from './components/StepAddresses';
 
+import serviceForm from 'assets/service-form.pdf';
+
 const ContentSection = styled(Section)`
   justify-content: center;
 `;
@@ -15,7 +17,7 @@ const ContentSection = styled(Section)`
 class HowToDeliver extends Component {
   getStepOneButton = (label) => {
     return (
-      <BlockLink href="#">
+      <BlockLink href={serviceForm} target="_blank" rel="noopener noreferrer">
         {label}
         <Icon name="download" size={15} marginLeft={5} />
       </BlockLink>
