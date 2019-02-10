@@ -112,7 +112,7 @@ class ContactForm extends Component {
               }
             />
           </InputGroup>
-          <input type="hidden" name="_next" value="/" />
+          <input type="hidden" name="_next" value="/submission-success" />
           <input
             type="hidden"
             name="_subject"

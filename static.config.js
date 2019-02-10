@@ -123,6 +123,10 @@ export default {
         }),
       },
       {
+        path: '/submission-success',
+        component: 'src/scenes/MailSubmissionSuccess',
+      },
+      {
         is404: true,
         component: 'src/scenes/404',
       },
