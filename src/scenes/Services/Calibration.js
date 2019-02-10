@@ -21,7 +21,7 @@ class Calibration extends Component {
     return (
       <Layout>
         <Heading />
-        <ContentSection>kalibracja</ContentSection>
+        <ContentSection>Przepraszamy, strona w budowie ;(</ContentSection>
       </Layout>
     );
   }

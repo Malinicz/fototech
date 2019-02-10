@@ -21,7 +21,7 @@ class Cleaning extends Component {
     return (
       <Layout>
         <Heading />
-        <ContentSection>czyszczenie</ContentSection>
+        <ContentSection>Przepraszamy, strona w budowie ;(</ContentSection>
       </Layout>
     );
   }

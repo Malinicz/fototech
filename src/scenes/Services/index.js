@@ -21,7 +21,7 @@ class Services extends Component {
     return (
       <Layout>
         <Heading />
-        <ContentSection>naprawa</ContentSection>
+        <ContentSection>Przepraszamy, strona w budowie ;(</ContentSection>
       </Layout>
     );
   }

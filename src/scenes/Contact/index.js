@@ -5,7 +5,14 @@ import styled from 'styles';
 
 import { Section, BlockLink } from 'components/ui/base';
 import { Layout, Icon } from 'components/ui';
-import { Heading, ContactDetails, ContactForm } from './components';
+import {
+  Heading,
+  ContactDetails,
+  ContactForm,
+  Map,
+  MaxWidthWrapper,
+} from './components';
+import { MapHolder, MapHeading } from './components/Map';
 
 const ContentSection = styled(Section)`
   flex-direction: column;
@@ -26,16 +33,25 @@ class Contact extends Component {
   render() {
     const {
       siteData: { contactDetails },
-      // routeData: {},
+      routeData: { mapHeading },
     } = this.props;
 
     return (
-      <Layout>
-        <Heading />
-        <ContentSection>
-          <ContactDetails city="warszawa" />
-          <ContactForm contactMail={contactDetails.warszawa.email} />
-        </ContentSection>
+      <Layout maxWidth="100%">
+        <MaxWidthWrapper>
+          <Heading />
+          <ContentSection>
+            <ContactDetails city="warszawa" />
+            <ContactForm contactMail={contactDetails.warszawa.email} />
+          </ContentSection>
+        </MaxWidthWrapper>
+        <MapHolder>
+          <MapHeading>{mapHeading}</MapHeading>
+          <Map
+            lat={contactDetails.warszawa.lat}
+            lng={contactDetails.warszawa.lng}
+          />
+        </MapHolder>
       </Layout>
     );
   }
@@ -43,12 +59,12 @@ class Contact extends Component {
 
 Contact.defaultProps = {
   siteData: {},
-  // routeData: {},
+  routeData: {},
 };
 
 Contact.propTypes = {
   siteData: object,
-  // routeData: object,
+  routeData: object,
 };
 
 export default withSiteData(withRouteData(Contact));
