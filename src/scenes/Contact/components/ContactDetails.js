@@ -63,7 +63,7 @@ export const ContactDetails = withSiteData(
           </Address>
           <Label>{openingHoursHeading}</Label>
           {openingHours.map((item) => (
-            <OpeningHours>{item}</OpeningHours>
+            <OpeningHours key={item}>{item}</OpeningHours>
           ))}
         </React.Fragment>
       );
