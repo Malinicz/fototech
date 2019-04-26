@@ -25,16 +25,30 @@ const Address = styled(ValueBase.withComponent('address'))`
   text-align: center;
 `;
 
+const OpeningHours = styled(ValueBase.withComponent('div'))`
+  margin-bottom: 5px;
+`;
+
 export const ContactDetails = withSiteData(
   withRouteData(
     ({
-      routeData: { phoneHeading, emailHeading, addressHeading },
+      routeData: {
+        phoneHeading,
+        emailHeading,
+        addressHeading,
+        openingHoursHeading,
+      },
       siteData: { contactDetails },
       city: cityName,
     }) => {
-      const { phone, email, street, postalCode, city } = contactDetails[
-        cityName
-      ];
+      const {
+        phone,
+        email,
+        street,
+        postalCode,
+        city,
+        openingHours,
+      } = contactDetails[cityName];
       return (
         <React.Fragment>
           <Label>{phoneHeading}</Label>
@@ -47,6 +61,10 @@ export const ContactDetails = withSiteData(
             <br />
             {postalCode} {city}
           </Address>
+          <Label>{openingHoursHeading}</Label>
+          {openingHours.map((item) => (
+            <OpeningHours>{item}</OpeningHours>
+          ))}
         </React.Fragment>
       );
     }

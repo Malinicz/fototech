@@ -9,6 +9,7 @@ export default {
     showOnMapLabel: 'Pokaż na mapie',
     lat: 52.186284,
     lng: 20.956399,
+    openingHours: ['Pon-czw: 10-18', 'Pt: 10-16'],
   },
   krakow: {
     label: 'Fototech Kraków',
@@ -20,5 +21,6 @@ export default {
     showOnMapLabel: 'Pokaż na mapie',
     lat: 50.042508,
     lng: 19.942382,
+    openingHours: ['Pon-wt: 9-17', 'Śr: 9-20', 'Czw: 9-17', 'Pt: 9-15'],
   },
 };

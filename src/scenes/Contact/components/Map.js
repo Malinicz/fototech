@@ -52,5 +52,5 @@ Map.propTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAIuPLkUNbYWbrPeQVY9x2-Gj7wWISy1ig',
+  apiKey: process.env.GOOGLE_API_KEY,
 })(Map);

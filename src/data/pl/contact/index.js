@@ -25,4 +25,5 @@ export default {
   formLabelDescription: 'treść',
   formLabelButton: 'Wyślij',
   mapHeading: 'Znajdź nas na mapie',
+  openingHoursHeading: 'Godziny otwarcia',
 };
