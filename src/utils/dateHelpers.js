@@ -7,5 +7,5 @@ export function formatDate(datetime) {
   const year = date.getFullYear();
   const month = fillValueWithZeros(date.getMonth() + 1);
   const day = fillValueWithZeros(date.getDate());
-  return `${year}.${month}.${day}`;
+  return `${day}.${month}.${year}`;
 }

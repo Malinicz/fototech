@@ -7,6 +7,7 @@ import {
   ManWalkingIcon,
   MapPinIcon,
   ArrowRightIcon,
+  ArrowDownIcon,
   DownloadIcon,
   WrenchIcon,
   DropIcon,
@@ -22,6 +23,7 @@ const icons = {
   manWalking: <ManWalkingIcon />,
   mapPin: <MapPinIcon />,
   arrowRight: <ArrowRightIcon />,
+  arrowDown: <ArrowDownIcon />,
   download: <DownloadIcon />,
   wrench: <WrenchIcon />,
   drop: <DropIcon />,
@@ -38,11 +40,20 @@ const IconHolder = styled.div`
   fill: currentColor;
   margin-right: ${({ marginRight }) => marginRight || 0}px;
   margin-left: ${({ marginLeft }) => marginLeft || 0}px;
+  transform: ${({ rotate }) => `rotate(${rotate}deg)`};
 `;
 
-export const Icon = ({ name, size, marginRight, marginLeft, marginTop }) => {
+export const Icon = ({
+  name,
+  size,
+  marginRight,
+  marginLeft,
+  marginTop,
+  rotate,
+}) => {
   return (
     <IconHolder
+      rotate={rotate}
       size={size}
       marginLeft={marginLeft}
       marginRight={marginRight}
@@ -56,6 +67,7 @@ Icon.defaultProps = {
   marginLeft: 0,
   marginRight: 0,
   marginTop: 3,
+  rotate: 0,
 };
 
 Icon.propTypes = {
@@ -64,4 +76,5 @@ Icon.propTypes = {
   marginRight: number,
   marginLeft: number,
   marginTop: number,
+  rotate: number,
 };

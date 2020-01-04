@@ -5,7 +5,14 @@ import client from './src/services/contentfulClient';
 
 import pl from './src/data/pl';
 
-const siteRoot = 'https://www.fotonaprawa.pl';
+import {
+  flattenDefects,
+  flattenPosts,
+  getRouteData,
+  getServicesDynamicRoutes,
+} from './utils';
+
+export const siteRoot = 'https://www.fotonaprawa.pl';
 const stagingSiteRoot = 'https://staging-fotonaprawa.netlify.com';
 const basePath = '';
 const stagingBasePath = '';
@@ -20,11 +27,21 @@ export default {
   }),
   getRoutes: async () => {
     const contentfulData = await client.getEntries();
+    const defects = flattenDefects(contentfulData.items);
+    const blogPosts = flattenPosts(contentfulData.items);
     const news = contentfulData.items.filter(
       (item) =>
-        item.fields.category && item.fields.category.fields.name === 'news'
+        item.sys &&
+        item.sys.contentType &&
+        item.sys.contentType.sys &&
+        item.sys.contentType.sys.id === 'news'
     );
+
+    const routeData = getRouteData(defects);
+    const servicesDynamicRoutes = getServicesDynamicRoutes(routeData);
+
     return [
+      // +++ HOME ROUTES +++ //
       {
         path: pl.shared.navigation.home.slug,
         component: 'src/scenes/Home',
@@ -34,6 +51,37 @@ export default {
           news,
         }),
       },
+
+      // +++ SERVICES ROUTES +++ //
+
+      // main
+      {
+        path: '/uslugi',
+        component: 'src/scenes/Services',
+        getData: () => ({
+          routeData: {
+            ...pl.services,
+            models: routeData['naprawa'],
+            path: '/uslugi/naprawa',
+          },
+          canonicalUrl: `${siteRoot}/uslugi`,
+        }),
+      },
+
+      // dynamic routes
+      ...servicesDynamicRoutes,
+
+      // defects
+      ...defects.map((defect) => ({
+        path: `/${defect.slug}`,
+        component: 'src/scenes/Services/Defect',
+        getData: () => ({
+          routeData: { defect },
+          canonicalUrl: `${siteRoot}${defect.slug}`,
+        }),
+      })),
+
+      // +++ HOW TO DELIVER ROUTES +++ //
       {
         path: pl.shared.navigation.howToDeliver.slug,
         component: 'src/scenes/HowToDeliver',
@@ -60,42 +108,36 @@ export default {
           }`,
         }),
       },
+
+      // +++ BLOG ROUTES +++ //
+
+      // main
       {
-        path: pl.shared.navigation.services.slug,
-        component: 'src/scenes/Services',
+        path: pl.shared.navigation.blog.slug,
+        component: 'src/scenes/Blog',
         getData: () => ({
-          routeData: pl.services,
-          canonicalUrl: `${siteRoot}${pl.shared.navigation.services.slug}`,
+          routeData: { ...pl.blog, posts: blogPosts },
+          canonicalUrl: `${siteRoot}${pl.shared.navigation.blog.slug}`,
         }),
       },
-      {
-        path: pl.shared.navigation.services.sections.repair.slug,
-        component: 'src/scenes/Services',
+
+      // posts
+      ...blogPosts.map((post) => ({
+        path: `/blog/${post.slug}`,
+        component: 'src/scenes/Blog/Post',
         getData: () => ({
-          routeData: pl.services,
-          canonicalUrl: `${siteRoot}${pl.shared.navigation.services.slug}`,
+          routeData: {
+            ...pl.blog,
+            post,
+            allPosts: blogPosts.filter(
+              (singlePost, index) => singlePost.slug !== post.slug && index < 5
+            ),
+          },
+          canonicalUrl: `${siteRoot}/blog/${post.slug}`,
         }),
-      },
-      {
-        path: pl.shared.navigation.services.sections.cleaning.slug,
-        component: 'src/scenes/Services/Cleaning',
-        getData: () => ({
-          routeData: pl.services,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.services.sections.cleaning.slug
-          }`,
-        }),
-      },
-      {
-        path: pl.shared.navigation.services.sections.calibration.slug,
-        component: 'src/scenes/Services/Calibration',
-        getData: () => ({
-          routeData: pl.services,
-          canonicalUrl: `${siteRoot}${
-            pl.shared.navigation.services.sections.calibration.slug
-          }`,
-        }),
-      },
+      })),
+
+      // +++ CONTACT ROUTES +++ //
       {
         path: pl.shared.navigation.contact.slug,
         component: 'src/scenes/Contact',
@@ -122,10 +164,14 @@ export default {
           }`,
         }),
       },
+
+      // +++ MAIL SUBMISSION SUCCESS ROUTE +++ //
       {
         path: '/submission-success',
         component: 'src/scenes/MailSubmissionSuccess',
       },
+
+      // +++ PAGE NOT FOUND ROUTE +++ //
       {
         is404: true,
         component: 'src/scenes/404',

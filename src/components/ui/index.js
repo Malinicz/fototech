@@ -4,3 +4,5 @@ export { Layout } from './Layout';
 export { PageHeading } from './PageHeading';
 export { SegmentedButtons } from './SegmentedButtons';
 export { Icon } from './Icon';
+export { BackButton } from './BackButton';
+export * from './Article';

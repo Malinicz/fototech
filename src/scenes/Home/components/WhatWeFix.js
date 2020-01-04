@@ -4,11 +4,11 @@ import styled from 'styles';
 
 import { Section, H1, Card } from 'components/ui/base';
 
-const cameraReflex = require('scenes/Home/assets/camera-reflex.svg');
-const cameraMirrorless = require('scenes/Home/assets/camera-mirrorless.svg');
-const cameraLens = require('scenes/Home/assets/camera-lens.svg');
-const cameraFlash = require('scenes/Home/assets/camera-flash.svg');
-const camcorder = require('scenes/Home/assets/camcorder.svg');
+const cameraReflex = require('assets/images/camera-reflex.svg');
+const cameraMirrorless = require('assets/images/camera-mirrorless.svg');
+const cameraLens = require('assets/images/camera-lens.svg');
+const cameraFlash = require('assets/images/camera-flash.svg');
+const camcorder = require('assets/images/camcorder.svg');
 
 const WhatWeFixHolder = Section.extend`
   flex-direction: column;

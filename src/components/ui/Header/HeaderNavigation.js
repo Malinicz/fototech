@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-static';
 import { object, string, bool } from 'prop-types';
 import styled from 'styles';
 
@@ -35,14 +36,17 @@ const NavElement = styled.li`
   display: flex;
   align-items: center;
   height: 40px;
+  cursor: pointer;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(({ theme, isLinkActive, ...props }) => (
+  <Link {...props} />
+))`
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   font-size: 0.8em;
-  color: ${({ theme, isActive }) =>
-    isActive ? theme.colors.primaryDarker : theme.colors.darkest};
+  color: ${({ theme, isLinkActive }) =>
+    isLinkActive ? theme.colors.primaryDarker : theme.colors.darkest};
   transition: 0.2s color ease;
 
   &:hover {
@@ -75,14 +79,13 @@ export const HeaderNavigation = ({
       <NavElementsHolder>
         {Object.keys(navLinks).map((navSection, index) => {
           const navLink = navLinks[navSection];
-          const isActive = navLink.slug === activeLink;
+          const isActive =
+            navLink.slug && activeLink && navLink.slug === activeLink;
+
           return (
             <React.Fragment key={navLink.id}>
               <Divider isVisible={index !== 0} />
-              <NavLink
-                href={navLink.slug ? navLink.slug : navLink.url}
-                target={navLink.url ? '_blank' : '_self'}
-                isActive={isActive}>
+              <NavLink to={navLink.slug} isLinkActive={isActive}>
                 <NavElement>{navLink.label}</NavElement>
               </NavLink>
             </React.Fragment>
@@ -93,8 +96,12 @@ export const HeaderNavigation = ({
   );
 };
 
+HeaderNavigation.defaultProps = {
+  activeLink: '',
+};
+
 HeaderNavigation.propTypes = {
   navLinks: object.isRequired,
-  activeLink: string.isRequired,
   isMobileMenuActive: bool.isRequired,
+  activeLink: string,
 };

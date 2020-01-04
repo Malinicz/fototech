@@ -188,3 +188,38 @@ export const ArrowRightIcon = () => {
     </svg>
   );
 };
+
+export const ArrowDownIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.85 11.346">
+      <g
+        id="Group_1367"
+        data-name="Group 1367"
+        transform="translate(244.586 -1008.938) rotate(90)">
+        <g
+          id="Group_59"
+          data-name="Group 59"
+          transform="translate(1019.406 238.168) rotate(90)">
+          <path
+            id="Path_243"
+            data-name="Path 243"
+            d="M0,2.705,3.042,0,5.978,2.705"
+            transform="translate(0)"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.3"
+          />
+          <path
+            id="Path_244"
+            data-name="Path 244"
+            d="M0,0V10.469"
+            transform="translate(2.989)"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.3"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+};
