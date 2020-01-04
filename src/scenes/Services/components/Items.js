@@ -11,7 +11,9 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing / 4}px;
+  justify-content: flex-start;
+  height: 100%;
+  padding: ${({ theme }) => theme.spacing / 2}px;
   opacity: ${({ isActive }) => (isActive ? '1' : '0.85')};
   text-align: center;
 `;

@@ -22,9 +22,29 @@ export default {
   stagingSiteRoot,
   basePath,
   stagingBasePath,
-  getSiteData: async () => ({
-    siteData: pl.shared,
-  }),
+  getSiteData: async () => {
+    const contentfulData = await client.getEntries();
+    const alerts = contentfulData.items.filter(
+      (item) =>
+        item.sys &&
+        item.sys.contentType &&
+        item.sys.contentType.sys &&
+        item.sys.contentType.sys.id === 'alert'
+    );
+    const globalInfo =
+      alerts &&
+      alerts.length > 0 &&
+      alerts[0] &&
+      alerts[0].fields &&
+      alerts[0].fields.description;
+
+    return {
+      siteData: {
+        ...pl.shared,
+        globalInfo,
+      },
+    };
+  },
   getRoutes: async () => {
     const contentfulData = await client.getEntries();
     const defects = flattenDefects(contentfulData.items);

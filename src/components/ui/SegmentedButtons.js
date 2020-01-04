@@ -80,6 +80,7 @@ export const SegmentedButtons = ({ segments, activeLink, buttonWidth }) => {
             to={segment.link}
             isLinkActive={isActive}
             width={buttonWidth}
+            scrollToTop={false}
             elementsAmount={elementsAmount}>
             {segment.icon && (
               <IconHolder>

@@ -73,12 +73,16 @@ const AdditionalInfoHolder = styled.div`
 `;
 
 const AdditionalInfo = styled.div`
-  font-size: 0.9em;
   padding-bottom: 5px;
 `;
 
 const BackButtonHolder = styled.div`
   display: inline-flex;
+`;
+
+const AsideLink = styled(ParagraphLink)`
+  display: inline-block;
+  padding: 0.2em 0;
 `;
 
 class Repair extends Component {
@@ -90,7 +94,7 @@ class Repair extends Component {
     const options = {
       renderNode: {
         [INLINES.HYPERLINK]: (node, children) => (
-          <ParagraphLink>{children}</ParagraphLink>
+          <ParagraphLink href={node.data.uri}>{children}</ParagraphLink>
         ),
         [BLOCKS.PARAGRAPH]: (node, children) => (
           <ArticleParagraph>{children}</ArticleParagraph>
@@ -136,11 +140,17 @@ class Repair extends Component {
               <AsideCard>
                 <AsideTitle>Modele, których dotyczy ten defekt</AsideTitle>
                 <AffectedModelsList>
-                  {defect.deviceModels.map((model) => (
-                    <li key={model.slug}>
-                      {model.company.name} - {model.name}
-                    </li>
-                  ))}
+                  {defect.deviceModels.map((model) => {
+                    const modelUrl = `/uslugi/${
+                      defect.serviceCategories[0].slug
+                    }/${model.type.slug}/${model.company.slug}/${model.slug}`;
+
+                    return (
+                      <li key={model.slug}>
+                        <AsideLink to={modelUrl}>{model.name}</AsideLink>
+                      </li>
+                    );
+                  })}
                 </AffectedModelsList>
               </AsideCard>
             </Aside>

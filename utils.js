@@ -59,7 +59,6 @@ export const flattenDefects = (items) => {
         serviceCategory,
         deviceModel,
         image,
-        videoUrl,
       } = defect.fields;
 
       return {
@@ -140,7 +139,6 @@ export const flattenDefects = (items) => {
           image.fields &&
           image.fields.file &&
           `https:${image.fields.file.url}`,
-        videoUrl,
       };
     });
 

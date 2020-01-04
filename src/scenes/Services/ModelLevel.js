@@ -45,7 +45,10 @@ class ModelLevel extends Component {
         )}
         <StyledItems>
           {models.map((model) => (
-            <LastLevelLink to={`${path}/${model.slug}`} key={model.slug}>
+            <LastLevelLink
+              to={`${path}/${model.slug}`}
+              key={model.slug}
+              scrollToTop={false}>
               <Item>{model.name}</Item>
             </LastLevelLink>
           ))}

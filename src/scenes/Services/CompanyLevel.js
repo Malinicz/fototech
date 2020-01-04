@@ -16,6 +16,10 @@ export const CompanyLogo = styled.img`
   max-width: 100px;
 `;
 
+const StyledItem = styled(Item)`
+  justify-content: flex-end;
+`;
+
 class CompanyLevel extends Component {
   render() {
     const {
@@ -42,10 +46,13 @@ class CompanyLevel extends Component {
         )}
         <Items>
           {companies.map((company) => (
-            <LastLevelLink to={`${path}/${company.slug}`} key={company.slug}>
-              <Item>
+            <LastLevelLink
+              to={`${path}/${company.slug}`}
+              key={company.slug}
+              scrollToTop={false}>
+              <StyledItem>
                 <CompanyLogo src={company.logo} />
-              </Item>
+              </StyledItem>
             </LastLevelLink>
           ))}
         </Items>

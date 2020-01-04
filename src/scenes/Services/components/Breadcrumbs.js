@@ -42,7 +42,9 @@ export const Breadcrumbs = ({ breadcrumbs, path }) => {
                 {capitalFirst(breadcrumb.name)}
               </CurrentLevelTitle>
             ) : (
-              <LevelLink to={`${basePath}/${breadcrumb.link}`}>
+              <LevelLink
+                to={`${basePath}/${breadcrumb.link}`}
+                scrollToTop={false}>
                 {capitalFirst(breadcrumb.name)}
               </LevelLink>
             )}

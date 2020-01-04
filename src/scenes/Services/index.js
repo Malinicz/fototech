@@ -81,7 +81,10 @@ class Services extends Component {
             const isActive = match.url.includes(type.slug);
 
             return (
-              <LastLevelLink to={`${path}/${type.slug}`} key={type.slug}>
+              <LastLevelLink
+                to={`${path}/${type.slug}`}
+                key={type.slug}
+                scrollToTop={false}>
                 <Item isActive={isActive}>
                   <ImageHolder isActive={isActive}>
                     <Image
