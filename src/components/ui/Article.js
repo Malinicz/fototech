@@ -28,6 +28,10 @@ export const ArticleImage = styled.div`
   background-position: center;
   background-size: cover;
   margin: ${CARD_SPACING / 2}px 0 ${CARD_SPACING}px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    min-height: 200px;
+  }
 `;
 
 export const ArticleContent = styled.div`
@@ -44,4 +48,5 @@ export const ArticleContent = styled.div`
 
 export const ArticleParagraph = styled(Paragraph)`
   max-width: 100%;
+  text-align: left;
 `;

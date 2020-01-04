@@ -56,11 +56,7 @@ const AsideCardHolder = styled(Card.withComponent(Link))`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     flex: auto;
     width: 100%;
-    margin: ${({ theme }) => theme.spacing / 2}px 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    flex-direction: column;
+    margin-bottom: ${({ theme }) => theme.spacing}px;
   }
 `;
 
