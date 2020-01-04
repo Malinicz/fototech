@@ -90,7 +90,7 @@ class Repair extends Component {
     const options = {
       renderNode: {
         [INLINES.HYPERLINK]: (node, children) => (
-          <ParagraphLink>{children}</ParagraphLink>
+          <ParagraphLink href={node.data.uri}>{children}</ParagraphLink>
         ),
         [BLOCKS.PARAGRAPH]: (node, children) => (
           <ArticleParagraph>{children}</ArticleParagraph>
