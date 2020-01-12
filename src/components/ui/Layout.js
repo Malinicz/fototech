@@ -50,6 +50,7 @@ const IconHolder = styled.div`
   align-items: center;
   width: 40px;
   height: 40px;
+  margin-left: ${({ theme }) => theme.spacing}px;
 `;
 
 class LayoutComp extends Component {
