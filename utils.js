@@ -22,7 +22,7 @@ export const flattenPosts = (items) => {
 
       return {
         title,
-        slug,
+        slug: slug.toLowerCase(),
         content,
         imageLarge:
           imageLarge &&
@@ -63,7 +63,7 @@ export const flattenDefects = (items) => {
 
       return {
         title,
-        slug,
+        slug: slug.toLowerCase(),
         description,
         priceMin,
         priceMax,
@@ -74,7 +74,7 @@ export const flattenDefects = (items) => {
                   ...result,
                   {
                     name: nextCategory.fields.name,
-                    slug: nextCategory.fields.slug,
+                    slug: nextCategory.fields.slug.toLowerCase(),
                   },
                 ]
               : result,
@@ -87,7 +87,7 @@ export const flattenDefects = (items) => {
                   ...result,
                   {
                     name: nextDeviceModel.fields.name,
-                    slug: nextDeviceModel.fields.slug,
+                    slug: nextDeviceModel.fields.slug.toLowerCase(),
                     company: {
                       name:
                         nextDeviceModel.fields.deviceCompany &&
@@ -96,7 +96,7 @@ export const flattenDefects = (items) => {
                       slug:
                         nextDeviceModel.fields.deviceCompany &&
                         nextDeviceModel.fields.deviceCompany.fields &&
-                        nextDeviceModel.fields.deviceCompany.fields.slug,
+                        nextDeviceModel.fields.deviceCompany.fields.slug.toLowerCase(),
                       logo:
                         nextDeviceModel.fields.deviceCompany &&
                         nextDeviceModel.fields.deviceCompany.fields &&
@@ -120,11 +120,11 @@ export const flattenDefects = (items) => {
                       slug:
                         nextDeviceModel.fields.deviceType &&
                         nextDeviceModel.fields.deviceType.fields &&
-                        nextDeviceModel.fields.deviceType.fields.slug,
+                        nextDeviceModel.fields.deviceType.fields.slug.toLowerCase(),
                     },
                     defect: {
                       title,
-                      slug,
+                      slug: slug.toLowerCase(),
                       description,
                       priceMin,
                       priceMax,
