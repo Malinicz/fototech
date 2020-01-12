@@ -146,86 +146,81 @@ export const flattenDefects = (items) => {
 };
 
 export function getRouteData(defects) {
-  return defects.reduce(
-    (accumulatedDefects, nextDefect) => {
-      const result = { ...accumulatedDefects };
+  return defects.reduce((accumulatedDefects, nextDefect) => {
+    const result = { ...accumulatedDefects };
 
-      nextDefect.serviceCategories.forEach((category) => {
-        const categoryLevelKey = `${category.slug}`;
+    nextDefect.serviceCategories.forEach((category) => {
+      const categoryLevelKey = `${category.slug}`;
 
-        if (result[categoryLevelKey]) {
-          result[categoryLevelKey] = [
-            ...result[categoryLevelKey],
-            ...nextDefect.deviceModels,
+      if (result[categoryLevelKey]) {
+        result[categoryLevelKey] = [
+          ...result[categoryLevelKey],
+          ...nextDefect.deviceModels,
+        ];
+      } else {
+        result[categoryLevelKey] = [...nextDefect.deviceModels];
+      }
+
+      nextDefect.deviceModels.forEach((deviceModel) => {
+        const deviceTypeLevelKey = `${category.slug}/${deviceModel.type.slug}`;
+
+        if (result[deviceTypeLevelKey]) {
+          result[deviceTypeLevelKey] = [
+            ...result[deviceTypeLevelKey],
+            ...nextDefect.deviceModels.filter(
+              (m) => m.type.slug === deviceModel.type.slug
+            ),
           ];
         } else {
-          result[categoryLevelKey] = [...nextDefect.deviceModels];
+          result[deviceTypeLevelKey] = [
+            ...nextDefect.deviceModels.filter(
+              (m) => m.type.slug === deviceModel.type.slug
+            ),
+          ];
         }
 
-        nextDefect.deviceModels.forEach((deviceModel) => {
-          const deviceTypeLevelKey = `${category.slug}/${
-            deviceModel.type.slug
-          }`;
+        const companyLevelKey = `${category.slug}/${deviceModel.type.slug}/${
+          deviceModel.company.slug
+        }`;
 
-          if (result[deviceTypeLevelKey]) {
-            result[deviceTypeLevelKey] = [
-              ...result[deviceTypeLevelKey],
-              ...nextDefect.deviceModels.filter(
-                (m) => m.type.slug === deviceModel.type.slug
-              ),
-            ];
-          } else {
-            result[deviceTypeLevelKey] = [
-              ...nextDefect.deviceModels.filter(
-                (m) => m.type.slug === deviceModel.type.slug
-              ),
-            ];
-          }
+        if (result[companyLevelKey]) {
+          result[companyLevelKey] = [
+            ...result[companyLevelKey],
+            ...nextDefect.deviceModels.filter(
+              (m) => m.company.slug === deviceModel.company.slug
+            ),
+          ];
+        } else {
+          result[companyLevelKey] = [
+            ...nextDefect.deviceModels.filter(
+              (m) => m.company.slug === deviceModel.company.slug
+            ),
+          ];
+        }
 
-          const companyLevelKey = `${category.slug}/${deviceModel.type.slug}/${
-            deviceModel.company.slug
-          }`;
+        const modelLevelKey = `${category.slug}/${deviceModel.type.slug}/${
+          deviceModel.company.slug
+        }/${deviceModel.slug}`;
 
-          if (result[companyLevelKey]) {
-            result[companyLevelKey] = [
-              ...result[companyLevelKey],
-              ...nextDefect.deviceModels.filter(
-                (m) => m.company.slug === deviceModel.company.slug
-              ),
-            ];
-          } else {
-            result[companyLevelKey] = [
-              ...nextDefect.deviceModels.filter(
-                (m) => m.company.slug === deviceModel.company.slug
-              ),
-            ];
-          }
-
-          const modelLevelKey = `${category.slug}/${deviceModel.type.slug}/${
-            deviceModel.company.slug
-          }/${deviceModel.slug}`;
-
-          if (result[modelLevelKey]) {
-            result[modelLevelKey] = [
-              ...result[modelLevelKey],
-              ...nextDefect.deviceModels.filter(
-                (m) => m.slug === deviceModel.slug
-              ),
-            ];
-          } else {
-            result[modelLevelKey] = [
-              ...nextDefect.deviceModels.filter(
-                (m) => m.slug === deviceModel.slug
-              ),
-            ];
-          }
-        });
+        if (result[modelLevelKey]) {
+          result[modelLevelKey] = [
+            ...result[modelLevelKey],
+            ...nextDefect.deviceModels.filter(
+              (m) => m.slug === deviceModel.slug
+            ),
+          ];
+        } else {
+          result[modelLevelKey] = [
+            ...nextDefect.deviceModels.filter(
+              (m) => m.slug === deviceModel.slug
+            ),
+          ];
+        }
       });
+    });
 
-      return result;
-    },
-    { naprawa: undefined, czyszczenie: undefined, kalibracja: undefined }
-  );
+    return result;
+  }, {});
 }
 
 export function getServicesDynamicRoutes(routeData) {
