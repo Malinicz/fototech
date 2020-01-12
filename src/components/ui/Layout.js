@@ -67,7 +67,8 @@ class LayoutComp extends Component {
       ? JSON.parse(globalInfoStorageValue)
       : true;
 
-    const isGlobalInfoVisible = globalInfo && shouldShowGlobalInfo;
+    const isGlobalInfoVisible =
+      globalInfo && globalInfo.trim() && shouldShowGlobalInfo;
 
     if (isGlobalInfoVisible) {
       sessionStorage.setItem('showGlobalInfo', true);
