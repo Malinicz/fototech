@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withSiteData, withRouteData } from 'react-static';
+import { withSiteData, withRouteData, Link } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
 import styledTheme from 'styles/theme';
@@ -80,7 +80,7 @@ const BackButtonHolder = styled.div`
   display: inline-flex;
 `;
 
-const AsideLink = styled(ParagraphLink)`
+const AsideLink = styled(ParagraphLink.withComponent(Link))`
   display: inline-block;
   padding: 0.2em 0;
 `;
