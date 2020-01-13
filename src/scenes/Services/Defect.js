@@ -126,9 +126,11 @@ class Repair extends Component {
                 <AdditionalInfo>
                   <b>Cena usługi:</b>{' '}
                   <span>
-                    {defect.priceMax === defect.priceMin
-                      ? `${defect.priceMin}zł`
-                      : `${defect.priceMin}zł - ${defect.priceMax}zł`}
+                    {!defect.priceMax && !defect.priceMin
+                      ? 'Zapraszamy do kontaktu'
+                      : defect.priceMax === defect.priceMin
+                        ? `${defect.priceMin}zł`
+                        : `${defect.priceMin}zł - ${defect.priceMax}zł`}
                   </span>
                 </AdditionalInfo>
               </AdditionalInfoHolder>
