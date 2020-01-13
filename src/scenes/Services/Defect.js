@@ -127,7 +127,7 @@ class Repair extends Component {
                   <b>Cena usługi:</b>{' '}
                   <span>
                     {!defect.priceMax && !defect.priceMin
-                      ? 'Zapraszamy do kontaktu'
+                      ? 'zapraszamy do kontaktu'
                       : defect.priceMax === defect.priceMin
                         ? `${defect.priceMin}zł`
                         : `${defect.priceMin}zł - ${defect.priceMax}zł`}
