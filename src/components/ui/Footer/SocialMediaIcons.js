@@ -7,7 +7,7 @@ import { LinkWrapper } from 'components/ui/base';
 import { getRgba } from 'styles/helpers';
 
 const facebookLogo = require('./assets/facebook-logo.svg');
-const googlePlusLogo = require('./assets/google-plus-logo.svg');
+const instagramLogo = require('./assets/instagram-logo.svg');
 const youTubeLogo = require('./assets/youtube-logo.svg');
 
 const SocialMediaIconsHolder = styled.div`
@@ -41,7 +41,7 @@ const FacebookIcon = styled.img`
   width: 13px;
 `;
 
-const GooglePlusIcon = styled.img`
+const InstagramIcon = styled.img`
   width: 32px;
 `;
 
@@ -63,9 +63,9 @@ export const SocialMediaIcons = ({ socialMediaUrls }) => {
           <FacebookIcon src={facebookLogo} />
         </IconHolder>
       </StyledLinkWrapper>
-      <StyledLinkWrapper href={socialMediaUrls.googlePlus} target="_blank">
+      <StyledLinkWrapper href={socialMediaUrls.instagram} target="_blank">
         <IconHolder>
-          <GooglePlusIcon src={googlePlusLogo} />
+          <InstagramIcon src={instagramLogo} />
         </IconHolder>
       </StyledLinkWrapper>
       <StyledLinkWrapper href={socialMediaUrls.youTube} target="_blank">

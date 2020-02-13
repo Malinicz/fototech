@@ -13,6 +13,8 @@ import {
 import { Icon } from 'components/ui';
 import { TransparentShelf, ColoredShelf } from './Shelves';
 
+import termsOfUseDoc from 'assets/regulamin.pdf';
+
 const cameraDestructured = require('scenes/Home/assets/camera-destructured.svg');
 const isometricGradient = require('scenes/Home/assets/gradient-isometric.svg');
 
@@ -117,14 +119,7 @@ const IsometricGradient = styled.img`
 `;
 
 export const HowWeWork = withRouteData(
-  ({
-    routeData: {
-      howWeWorkHeading,
-      howWeWorkParagraphs,
-      termsOfUse,
-      termsOfUseLink,
-    },
-  }) => {
+  ({ routeData: { howWeWorkHeading, howWeWorkParagraphs, termsOfUse } }) => {
     return (
       <HowWeWorkHolder>
         <GraphicsHolder>
@@ -150,7 +145,7 @@ export const HowWeWork = withRouteData(
             />
             <DottedDivider />
             <TermsOfUseHolder>
-              <BlockLink href={termsOfUseLink}>
+              <BlockLink href={termsOfUseDoc} target="_blank">
                 <Icon name="pdf" size={20} marginRight={5} />
                 {termsOfUse}
               </BlockLink>

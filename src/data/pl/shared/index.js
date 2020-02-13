@@ -11,7 +11,7 @@ export default {
   language: 'pl',
   socialMediaUrls: {
     facebook: 'https://www.facebook.com/FototechSerwis',
-    googlePlus: 'https://plus.google.com/+FotonaprawaPL',
+    instagram: 'https://www.instagram.com/fototech_serwis',
     youTube: 'https://www.youtube.com/user/serwisFOTOTECH',
   },
 };
