@@ -23,7 +23,7 @@ export default {
   basePath,
   stagingBasePath,
   getSiteData: async () => {
-    const contentfulData = await client.getEntries();
+    const contentfulData = await client.getEntries({ limit: 1000 });
     const alerts = contentfulData.items.filter(
       (item) =>
         item.sys &&
@@ -46,7 +46,7 @@ export default {
     };
   },
   getRoutes: async () => {
-    const contentfulData = await client.getEntries();
+    const contentfulData = await client.getEntries({ limit: 1000 });
     const defects = flattenDefects(contentfulData.items);
     const blogPosts = flattenPosts(contentfulData.items);
     const news = contentfulData.items.filter(
