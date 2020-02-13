@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "source .env && react-static start",
+    "start": "source ./.env && react-static start",
     "stage": "react-static build --staging",
-    "build": "react-static build",
+    "build": "source ./.env && react-static build",
     "serve": "serve dist -p 3000"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
     "axios": "^0.18.0",
     "contentful": "^7.0.3",
     "google-maps-react": "^2.0.2",

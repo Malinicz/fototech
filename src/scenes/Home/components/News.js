@@ -7,7 +7,7 @@ import { TransparentShelf, ColoredShelf } from './Shelves';
 
 import { formatDate } from 'utils/dateHelpers';
 
-const cameraReflex = require('scenes/Home/assets/camera-reflex.svg');
+const cameraReflex = require('assets/images/camera-reflex.svg');
 
 const NewsHolder = Section.extend`
   margin-bottom: 30px;

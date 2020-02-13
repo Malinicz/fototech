@@ -23,7 +23,7 @@ export default {
       },
     },
   },
-  shop: { id: 4, label: 'Sklep', url: 'http://www.fototech-serwis.pl' },
+  // shop: { id: 4, label: 'Sklep', url: 'http://www.fototech-serwis.pl' },
   blog: { id: 5, label: 'Blog', slug: '/blog' },
   contact: {
     id: 6,

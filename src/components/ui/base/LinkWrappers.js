@@ -1,3 +1,4 @@
+import { Link } from 'react-static';
 import styled from 'styles';
 
 export const LinkWrapper = styled.a`
@@ -8,11 +9,13 @@ export const LinkWrapper = styled.a`
   }
 `;
 
-export const ParagraphLink = LinkWrapper.extend`
+export const ParagraphLink = styled(LinkWrapper)`
   color: ${({ theme }) => theme.colors.primaryDarker};
 `;
 
-export const BlockLink = LinkWrapper.extend`
+export const ParagraphRouterLink = styled(ParagraphLink.withComponent(Link));
+
+export const BlockLink = styled(LinkWrapper)`
   display: inline-flex;
   align-items: center;
   text-transform: uppercase;
@@ -24,3 +27,5 @@ export const BlockLink = LinkWrapper.extend`
     opacity: 0.8;
   }
 `;
+
+export const BlockRouterLink = styled(BlockLink.withComponent(Link));

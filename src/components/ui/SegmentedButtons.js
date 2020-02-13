@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-static';
 import styled from 'styles';
 import { arrayOf, shape, string, number } from 'prop-types';
 
@@ -6,24 +7,28 @@ import { Icon } from 'components/ui';
 
 const SegmentedButtonsHolder = styled.div`
   display: flex;
+  justify-content: center;
   height: 47px;
+  width: 100%;
 `;
 
-const SegmentButton = styled.a`
+const SegmentButton = styled(
+  ({ theme, isLinkActive, elementsAmount, ...props }) => <Link {...props} />
+)`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: ${({ width }) => width || 200}px;
-  color: ${({ theme, isActive }) =>
-    isActive ? theme.colors.brightest : theme.colors.secondaryDarker};
+  color: ${({ theme, isLinkActive }) =>
+    isLinkActive ? theme.colors.brightest : theme.colors.secondaryDarker};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   border-top: 2px solid ${({ theme }) => theme.colors.secondary};
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
   border-left: 1px solid ${({ theme }) => theme.colors.secondary};
-  background-color: ${({ theme, isActive }) =>
-    isActive ? theme.colors.secondary : 'transparent'};
+  background-color: ${({ theme, isLinkActive }) =>
+    isLinkActive ? theme.colors.secondary : 'transparent'};
   cursor: pointer;
 
   &:first-child {
@@ -39,7 +44,7 @@ const SegmentButton = styled.a`
   }
 
   &:hover {
-    opacity: ${({ isActive }) => (isActive ? 0.8 : 1)};
+    opacity: ${({ isLinkActive }) => (isLinkActive ? 0.8 : 1)};
   }
 
   &:focus {
@@ -47,7 +52,14 @@ const SegmentButton = styled.a`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    width: 150px;
+    width: ${({ elementsAmount }) => 100 / elementsAmount}%;
+    font-size: 0.9em;
+  }
+`;
+
+const IconHolder = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    display: none;
   }
 `;
 
@@ -56,20 +68,28 @@ export const SegmentedButtons = ({ segments, activeLink, buttonWidth }) => {
     <SegmentedButtonsHolder>
       {segments.map((segment) => {
         const isActive = segment.initialLink
-          ? activeLink === segment.link || activeLink === segment.initialLink
-          : activeLink === segment.link;
+          ? activeLink.includes(segment.link) ||
+            activeLink === segment.initialLink
+          : activeLink.includes(segment.link);
+
+        const elementsAmount = segments.length;
+
         return (
           <SegmentButton
             key={segment.label}
-            href={segment.link}
-            isActive={isActive}
-            width={buttonWidth}>
+            to={segment.link}
+            isLinkActive={isActive}
+            width={buttonWidth}
+            scrollToTop={false}
+            elementsAmount={elementsAmount}>
             {segment.icon && (
-              <Icon
-                name={segment.icon}
-                size={segment.iconSize}
-                marginRight={5}
-              />
+              <IconHolder>
+                <Icon
+                  name={segment.icon}
+                  size={segment.iconSize}
+                  marginRight={5}
+                />
+              </IconHolder>
             )}
             {segment.label}
           </SegmentButton>

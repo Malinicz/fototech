@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withSiteData, withRouteData } from 'react-static';
+import { withSiteData, withRouteData, Link } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
 import styledTheme from 'styles/theme';
@@ -248,7 +248,7 @@ const LinkWithArrowLabel = styled.span`
   transition: 0.2s ease padding-right;
 `;
 
-const LinkToVenue = LinkWrapper.extend`
+const LinkToVenue = styled(LinkWrapper.withComponent(Link))`
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
@@ -339,7 +339,7 @@ class Intro extends Component {
                 <City>{contactDetails.warszawa.city}</City>
                 <Street>{contactDetails.warszawa.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation.contact.sections.warszawa.slug}>
+                <LinkToVenue to={navigation.contact.sections.warszawa.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>
@@ -348,7 +348,7 @@ class Intro extends Component {
                 <City>{contactDetails.krakow.city}</City>
                 <Street>{contactDetails.krakow.street}</Street>
                 <Divider />
-                <LinkToVenue href={navigation.contact.sections.krakow.slug}>
+                <LinkToVenue to={navigation.contact.sections.krakow.slug}>
                   <LinkWithArrowLabel>{linkToVenueLabel}</LinkWithArrowLabel>
                   <Icon name="arrowRight" size={12} marginLeft={5} />
                 </LinkToVenue>

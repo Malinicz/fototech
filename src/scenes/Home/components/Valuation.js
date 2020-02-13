@@ -7,7 +7,7 @@ import { Section, H1, Paragraph } from 'components/ui/base';
 import { TransparentShelfWithShadow } from './Shelves';
 import { CallToActionButton } from './CallToActionButton';
 
-const cameraMirrorless = require('scenes/Home/assets/camera-mirrorless.svg');
+const cameraMirrorless = require('assets/images/camera-mirrorless.svg');
 
 const ValuationHolder = Section.extend`
   margin-bottom: 70px;

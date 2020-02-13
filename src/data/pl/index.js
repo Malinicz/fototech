@@ -3,6 +3,7 @@ import home from './home';
 import howToDeliver from './howToDeliver';
 import services from './services';
 import contact from './contact';
+import blog from './blog';
 
 export default {
   shared,
@@ -10,4 +11,5 @@ export default {
   howToDeliver,
   services,
   contact,
+  blog,
 };
