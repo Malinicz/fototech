@@ -6,7 +6,7 @@
   "scripts": {
     "start": "source ./.env && react-static start",
     "stage": "react-static build --staging",
-    "build": "source ./.env && react-static build",
+    "build": "react-static build",
     "serve": "serve dist -p 3000"
   },
   "dependencies": {
