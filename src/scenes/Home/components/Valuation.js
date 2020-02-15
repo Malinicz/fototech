@@ -48,11 +48,7 @@ const ContentHolder = styled.div`
   }
 `;
 
-const Article = styled.article`
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-    text-align: center;
-  }
-`;
+const Article = styled.article``;
 
 const ArticleTitle = H1.extend`
   margin-top: 0;
@@ -70,6 +66,11 @@ const CameraMirrorless = styled.img`
 const StyledCallToActionButton = CallToActionButton.extend`
   background-color: ${({ theme }) => theme.colors.primary};
   margin-top: 30px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export const Valuation = withSiteData(

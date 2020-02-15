@@ -51,11 +51,7 @@ const ContentHolder = styled.div`
   }
 `;
 
-const Article = styled.article`
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-    text-align: center;
-  }
-`;
+const Article = styled.article``;
 
 const ArticleTitle = H1.extend`
   margin-top: 0;
