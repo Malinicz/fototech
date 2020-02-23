@@ -21,13 +21,18 @@ class ModelLevel extends Component {
       routeData: { models: modelsList, path },
     } = this.props;
 
-    const breadcrumber = modelsList.length > 0 && modelsList[0];
+    // get type slug, e.g. kamery-cyfrowe
+    const typeSlug = path.split('/')[3];
 
     const models = modelsList.reduce((result, model) => {
+      if (model.type.slug !== typeSlug) return result;
+
       return result.find((t) => t.slug === model.slug)
         ? result
         : [...result, model];
     }, []);
+
+    const breadcrumber = models.length > 0 && models[0];
 
     return (
       <ServicesLayout>
