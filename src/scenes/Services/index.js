@@ -84,8 +84,7 @@ class Services extends Component {
               <LastLevelLink
                 to={`${path}/${type.slug}`}
                 key={type.slug}
-                scrollToTop={false}
-                prefetch={false}>
+                scrollToTop={false}>
                 <Item isActive={isActive}>
                   <ImageHolder isActive={isActive}>
                     <Image
