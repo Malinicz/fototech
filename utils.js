@@ -55,20 +55,20 @@ export const flattenDefects = (items) => {
       const {
         title,
         slug,
-        // description,
-        // priceMin,
-        // priceMax,
+        description,
+        priceMin,
+        priceMax,
         serviceCategory,
         deviceModel,
-        // image,
+        image,
       } = defect.fields;
 
       return {
         title,
         slug: slug.toLowerCase(),
-        // description,
-        // priceMin,
-        // priceMax,
+        description,
+        priceMin,
+        priceMax,
         serviceCategories: serviceCategory.reduce(
           (result, nextCategory) =>
             nextCategory && nextCategory.fields
@@ -136,11 +136,11 @@ export const flattenDefects = (items) => {
               : result,
           []
         ),
-        // imageUrl:
-        //   image &&
-        //   image.fields &&
-        //   image.fields.file &&
-        //   `https:${image.fields.file.url}`,
+        imageUrl:
+          image &&
+          image.fields &&
+          image.fields.file &&
+          `https:${image.fields.file.url}`,
       };
     });
 
