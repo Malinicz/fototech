@@ -127,9 +127,6 @@ export const flattenDefects = (items) => {
                     defect: {
                       title,
                       slug: slug.toLowerCase(),
-                      // description,
-                      // priceMin,
-                      // priceMax,
                     },
                   },
                 ]
@@ -147,6 +144,7 @@ export const flattenDefects = (items) => {
   return defects;
 };
 
+// TODO make this more readable :(
 export function getRouteData(defects) {
   return defects.reduce((result, nextDefect) => {
     nextDefect.serviceCategories.forEach((category) => {
@@ -223,6 +221,7 @@ export function getRouteData(defects) {
   }, {});
 }
 
+// TODO make this more readable :(
 export function getServicesDynamicRoutes(routeData) {
   const componentMap = {
     0: 'src/scenes/Services',
@@ -281,7 +280,9 @@ export function getServicesDynamicRoutes(routeData) {
             routeData: {
               ...pl.services,
               models: routeData[slug].reduce((result, model) => {
-                if (model.type.slug !== `/uslugi/${slug}`.split('/')[3]) {
+                const typeSlug = slug.split('/')[1];
+
+                if (model.type.slug !== typeSlug) {
                   return result;
                 }
 

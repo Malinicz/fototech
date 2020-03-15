@@ -68,12 +68,6 @@ class Services extends Component {
       match,
     } = this.props;
 
-    // const hardwareTypes = models.reduce((result, model) => {
-    //   return result.find((t) => t.slug === model.type.slug)
-    //     ? result
-    //     : [...result, model.type];
-    // }, []);
-
     return (
       <ServicesLayout>
         <Items>

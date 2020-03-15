@@ -26,14 +26,6 @@ class CompanyLevel extends Component {
       routeData: { companies, breadcrumber, path },
     } = this.props;
 
-    // const companies = models.reduce((result, model) => {
-    //   return result.find((t) => t.slug === model.company.slug)
-    //     ? result
-    //     : [...result, model.company];
-    // }, []);
-
-    // const breadcrumber = models.length > 0 && models[0];
-
     return (
       <ServicesLayout>
         {breadcrumber && (
