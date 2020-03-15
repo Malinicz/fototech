@@ -8,6 +8,8 @@ import { FooterNavigation } from './FooterNavigation';
 import { SocialMediaIcons } from './SocialMediaIcons';
 import { ContactDetails } from './ContactDetails';
 
+import termsOfUse from 'assets/regulamin.pdf';
+
 const malinowskiLogo = require('./assets/malinowski-logo.svg');
 
 const FooterBase = Section.withComponent('footer');
@@ -69,12 +71,8 @@ export const Footer = withSiteData(({ siteData }) => {
           navigation={siteData.navigation}
         />
         <AdditionalMenu>
-          <AdditionalMenuLink href={siteData.footer.termsOfUse.url}>
+          <AdditionalMenuLink href={termsOfUse}>
             {siteData.footer.termsOfUse.label}
-          </AdditionalMenuLink>
-          |
-          <AdditionalMenuLink href={siteData.footer.siteMap.url}>
-            {siteData.footer.siteMap.label}
           </AdditionalMenuLink>
         </AdditionalMenu>
         <MalinowskiLogo src={malinowskiLogo} />

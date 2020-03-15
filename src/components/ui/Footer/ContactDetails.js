@@ -75,7 +75,7 @@ export const ContactDetails = ({ data }) => {
           {data.warszawa.email}
         </AddressLink>
         <br />
-        <MapLink href="/contact/warszawa">
+        <MapLink href="/kontakt/warszawa">
           {data.warszawa.showOnMapLabel}
           <Icon name="mapPin" size={16} marginLeft={5} />
         </MapLink>
@@ -99,7 +99,7 @@ export const ContactDetails = ({ data }) => {
         </AddressLink>
         <br />
         <MapLink
-          href="/contact/krakow"
+          href="/kontakt/krakow"
           color={styledTheme.colors.primaryDarker}>
           {data.krakow.showOnMapLabel}
           <Icon name="mapPin" size={16} marginLeft={5} />
