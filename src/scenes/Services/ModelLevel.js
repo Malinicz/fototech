@@ -18,21 +18,21 @@ const StyledItems = styled(Items)`
 class ModelLevel extends Component {
   render() {
     const {
-      routeData: { models: modelsList, path },
+      routeData: { models, breadcrumber, path },
     } = this.props;
 
     // get type slug, e.g. kamery-cyfrowe
-    const typeSlug = path.split('/')[3];
+    // const typeSlug = path.split('/')[3];
 
-    const models = modelsList.reduce((result, model) => {
-      if (model.type.slug !== typeSlug) return result;
+    // const models = modelsList.reduce((result, model) => {
+    //   if (model.type.slug !== typeSlug) return result;
 
-      return result.find((t) => t.slug === model.slug)
-        ? result
-        : [...result, model];
-    }, []);
+    //   return result.find((t) => t.slug === model.slug)
+    //     ? result
+    //     : [...result, model];
+    // }, []);
 
-    const breadcrumber = models.length > 0 && models[0];
+    // const breadcrumber = models.length > 0 && models[0];
 
     return (
       <ServicesLayout>

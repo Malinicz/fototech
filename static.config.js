@@ -81,7 +81,11 @@ export default {
         getData: () => ({
           routeData: {
             ...pl.services,
-            models: routeData['naprawa'],
+            hardwareTypes: routeData['naprawa'].reduce((result, model) => {
+              return result.find((t) => t.slug === model.type.slug)
+                ? result
+                : [...result, model.type];
+            }, []),
             path: '/uslugi/naprawa',
           },
           canonicalUrl: `${siteRoot}/uslugi`,

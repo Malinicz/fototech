@@ -23,16 +23,16 @@ const StyledItem = styled(Item)`
 class CompanyLevel extends Component {
   render() {
     const {
-      routeData: { models, path },
+      routeData: { companies, breadcrumber, path },
     } = this.props;
 
-    const companies = models.reduce((result, model) => {
-      return result.find((t) => t.slug === model.company.slug)
-        ? result
-        : [...result, model.company];
-    }, []);
+    // const companies = models.reduce((result, model) => {
+    //   return result.find((t) => t.slug === model.company.slug)
+    //     ? result
+    //     : [...result, model.company];
+    // }, []);
 
-    const breadcrumber = models.length > 0 && models[0];
+    // const breadcrumber = models.length > 0 && models[0];
 
     return (
       <ServicesLayout>

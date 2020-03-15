@@ -1,3 +1,5 @@
+/* eslint no-param-reassign: 0 */
+
 import pl from './src/data/pl';
 import { siteRoot } from './static.config';
 
@@ -53,20 +55,20 @@ export const flattenDefects = (items) => {
       const {
         title,
         slug,
-        description,
-        priceMin,
-        priceMax,
+        // description,
+        // priceMin,
+        // priceMax,
         serviceCategory,
         deviceModel,
-        image,
+        // image,
       } = defect.fields;
 
       return {
         title,
         slug: slug.toLowerCase(),
-        description,
-        priceMin,
-        priceMax,
+        // description,
+        // priceMin,
+        // priceMax,
         serviceCategories: serviceCategory.reduce(
           (result, nextCategory) =>
             nextCategory && nextCategory.fields
@@ -125,20 +127,20 @@ export const flattenDefects = (items) => {
                     defect: {
                       title,
                       slug: slug.toLowerCase(),
-                      description,
-                      priceMin,
-                      priceMax,
+                      // description,
+                      // priceMin,
+                      // priceMax,
                     },
                   },
                 ]
               : result,
           []
         ),
-        imageUrl:
-          image &&
-          image.fields &&
-          image.fields.file &&
-          `https:${image.fields.file.url}`,
+        // imageUrl:
+        //   image &&
+        //   image.fields &&
+        //   image.fields.file &&
+        //   `https:${image.fields.file.url}`,
       };
     });
 
@@ -146,9 +148,7 @@ export const flattenDefects = (items) => {
 };
 
 export function getRouteData(defects) {
-  return defects.reduce((accumulatedDefects, nextDefect) => {
-    const result = { ...accumulatedDefects };
-
+  return defects.reduce((result, nextDefect) => {
     nextDefect.serviceCategories.forEach((category) => {
       const categoryLevelKey = `${category.slug}`;
 
@@ -235,17 +235,95 @@ export function getServicesDynamicRoutes(routeData) {
     const splittedSlug = slug.split('/');
     const levelIndex = splittedSlug.length - 1;
 
-    return {
+    const defaultData = {
       path: `/uslugi/${slug}`,
       component: componentMap[levelIndex],
-      getData: () => ({
-        routeData: {
-          ...pl.services,
-          models: routeData[slug],
-          path: `/uslugi/${slug}`,
-        },
-        canonicalUrl: `${siteRoot}${slug}`,
-      }),
     };
+
+    switch (levelIndex) {
+      case 0:
+        return {
+          ...defaultData,
+          getData: () => ({
+            routeData: {
+              ...pl.services,
+              hardwareTypes: routeData[slug].reduce((result, model) => {
+                return result.find((t) => t.slug === model.type.slug)
+                  ? result
+                  : [...result, model.type];
+              }, []),
+              path: `/uslugi/${slug}`,
+            },
+            canonicalUrl: `${siteRoot}/${slug}`,
+          }),
+        };
+      case 1:
+        return {
+          ...defaultData,
+          getData: () => ({
+            routeData: {
+              ...pl.services,
+              companies: routeData[slug].reduce((result, model) => {
+                return result.find((t) => t.slug === model.company.slug)
+                  ? result
+                  : [...result, model.company];
+              }, []),
+              breadcrumber: routeData[slug].length > 0 && routeData[slug][0],
+              path: `/uslugi/${slug}`,
+            },
+            canonicalUrl: `${siteRoot}/${slug}`,
+          }),
+        };
+      case 2:
+        return {
+          ...defaultData,
+          getData: () => ({
+            routeData: {
+              ...pl.services,
+              models: routeData[slug].reduce((result, model) => {
+                if (model.type.slug !== `/uslugi/${slug}`.split('/')[3]) {
+                  return result;
+                }
+
+                return result.find((t) => t.slug === model.slug)
+                  ? result
+                  : [...result, model];
+              }, []),
+              breadcrumber: routeData[slug].length > 0 && routeData[slug][0],
+              path: `/uslugi/${slug}`,
+            },
+            canonicalUrl: `${siteRoot}/${slug}`,
+          }),
+        };
+      case 3:
+        return {
+          ...defaultData,
+          getData: () => ({
+            routeData: {
+              ...pl.services,
+              defects: routeData[slug].reduce((result, model) => {
+                return result.find((t) => t.slug === model.defect.slug)
+                  ? result
+                  : [...result, model.defect];
+              }, []),
+              breadcrumber: routeData[slug].length > 0 && routeData[slug][0],
+              path: `/uslugi/${slug}`,
+            },
+            canonicalUrl: `${siteRoot}/${slug}`,
+          }),
+        };
+      default:
+        return {
+          ...defaultData,
+          getData: () => ({
+            routeData: {
+              ...pl.services,
+              models: [],
+              path: `/uslugi/${slug}`,
+            },
+            canonicalUrl: `${siteRoot}/${slug}`,
+          }),
+        };
+    }
   });
 }

@@ -64,15 +64,15 @@ const ImageCaption = styled.div`
 class Services extends Component {
   render() {
     const {
-      routeData: { models, path },
+      routeData: { hardwareTypes, path },
       match,
     } = this.props;
 
-    const hardwareTypes = models.reduce((result, model) => {
-      return result.find((t) => t.slug === model.type.slug)
-        ? result
-        : [...result, model.type];
-    }, []);
+    // const hardwareTypes = models.reduce((result, model) => {
+    //   return result.find((t) => t.slug === model.type.slug)
+    //     ? result
+    //     : [...result, model.type];
+    // }, []);
 
     return (
       <ServicesLayout>

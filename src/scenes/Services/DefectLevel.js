@@ -18,16 +18,16 @@ const StyledItems = styled(Items)`
 class DefectLevel extends Component {
   render() {
     const {
-      routeData: { models, path },
+      routeData: { defects, breadcrumber, path },
     } = this.props;
 
-    const breadcrumber = models.length > 0 ? models[0] : undefined;
+    // const breadcrumber = models.length > 0 ? models[0] : undefined;
 
-    const defects = models.reduce((result, model) => {
-      return result.find((t) => t.slug === model.defect.slug)
-        ? result
-        : [...result, model.defect];
-    }, []);
+    // const defects = models.reduce((result, model) => {
+    //   return result.find((t) => t.slug === model.defect.slug)
+    //     ? result
+    //     : [...result, model.defect];
+    // }, []);
 
     return (
       <ServicesLayout>
