@@ -31,6 +31,6 @@
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-react-tools": "^1.2.5",
     "prettier": "^1.13.6",
-    "serve": "^9.6.0"
+    "serve": "^10.1.2"
   }
 }
