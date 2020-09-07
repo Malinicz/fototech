@@ -9,6 +9,7 @@ const cameraMirrorless = require('assets/images/camera-mirrorless.svg');
 const cameraLens = require('assets/images/camera-lens.svg');
 const cameraFlash = require('assets/images/camera-flash.svg');
 const camcorder = require('assets/images/camcorder.svg');
+const drone = require('assets/images/drone.svg');
 
 const WhatWeFixHolder = Section.extend`
   flex-direction: column;
@@ -77,8 +78,8 @@ const StyledCard = styled(Card.withComponent(Link))`
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 15px;
-  width: 19%;
-  min-width: 180px;
+  width: 15%;
+  min-width: 160px;
   max-width: 200px;
   height: 250px;
   background-color: ${({ theme }) => theme.colors.brightest};
@@ -131,22 +132,28 @@ const CardImage = styled.img`
   }
 `;
 
-const CameraReflex = CardImage.extend``;
+const CameraReflex = CardImage.extend`
+  width: 140px;
+`;
 
 const CameraMirrorless = CardImage.extend`
-  width: 165px;
+  width: 135px;
 `;
 
 const CameraLens = CardImage.extend`
-  width: 180px;
+  width: 150px;
 `;
 const CameraFlash = CardImage.extend`
-  width: 165px;
+  width: 135px;
 `;
 
 const Camcorder = CardImage.extend`
-  width: 170px;
+  width: 140px;
   transform: translate3d(10px, 0, 0);
+`;
+
+const Drone = CardImage.extend`
+  width: 150px;
 `;
 
 export const WhatWeFix = withSiteData(
@@ -182,6 +189,11 @@ export const WhatWeFix = withSiteData(
             <StyledCard to={navigation.services.slug}>
               <Camcorder src={camcorder} />
               <CardLabel marginTop={10}>{whatWeFixItems[4]}</CardLabel>
+              <IsometricCardBackground />
+            </StyledCard>
+            <StyledCard to={navigation.services.slug}>
+              <Drone src={drone} />
+              <CardLabel marginTop={10}>{whatWeFixItems[5]}</CardLabel>
               <IsometricCardBackground />
             </StyledCard>
           </CardsHolder>

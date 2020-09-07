@@ -12,6 +12,7 @@ export default {
     'Obiektywy',
     'Lampy błyskowe',
     'Kamery cyfrowe',
+    'Drony',
   ],
   howWeWorkHeading: 'Jak działamy',
   howWeWorkParagraphs: [

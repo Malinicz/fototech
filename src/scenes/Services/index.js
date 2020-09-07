@@ -11,6 +11,7 @@ const cameraMirrorless = require('assets/images/camera-mirrorless.svg');
 const cameraLens = require('assets/images/camera-lens.svg');
 const cameraFlash = require('assets/images/camera-flash.svg');
 const camcorder = require('assets/images/camcorder.svg');
+const drone = require('assets/images/drone.svg');
 
 const categoryToImage = {
   obiektywy: cameraLens,
@@ -18,6 +19,7 @@ const categoryToImage = {
   'aparaty-i-obiektywy-analogowe': cameraMirrorless,
   'lampy-blyskowe': cameraFlash,
   'kamery-cyfrowe': camcorder,
+  drony: drone,
 };
 
 const ImageHolder = styled.div`
