@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withSiteData, withRouteData } from 'react-static';
+import { withSiteData, withRouteData, Link } from 'react-static';
 import { object } from 'prop-types';
 import styled from 'styles';
 
@@ -47,8 +47,9 @@ const StyledMaxWidthWrapper = MaxWidthWrapper.extend`
   }
 `;
 
-const CompanyLogo = styled.img`
-  width: 210px;
+const CompanyLogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
     position: absolute;
@@ -56,8 +57,15 @@ const CompanyLogo = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    width: 180px;
     margin-top: 14px;
+  }
+`;
+
+const CompanyLogo = styled.img`
+  width: 210px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+    width: 180px;
   }
 `;
 
@@ -129,11 +137,13 @@ class Header extends Component {
     return (
       <HeaderHolder isOnTop={!isOnTop} isExpanded={isMobileMenuActive}>
         <StyledMaxWidthWrapper>
-          <CompanyLogo
-            src={fototechLogo}
-            alt={header.companyLogoAlt}
-            isMobileMenuActive={isMobileMenuActive}
-          />
+          <CompanyLogoLink to="/">
+            <CompanyLogo
+              src={fototechLogo}
+              alt={header.companyLogoAlt}
+              isMobileMenuActive={isMobileMenuActive}
+            />
+          </CompanyLogoLink>
           <HeaderNavigation
             navLinks={navigation}
             activeLink={navLinkActivityUrl}
