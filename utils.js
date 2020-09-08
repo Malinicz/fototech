@@ -3,6 +3,44 @@
 import pl from './src/data/pl';
 import { siteRoot } from './static.config';
 
+export const flattenContactDetails = (items) => {
+  const rawDetails = items.filter(
+    (item) =>
+      item.sys &&
+      item.sys.contentType &&
+      item.sys.contentType.sys &&
+      item.sys.contentType.sys.id === 'contactDetails'
+  );
+
+  return rawDetails.reduce((result, details, index) => {
+    const locationDetails = {
+      id: (details.fields && details.fields.id) || index,
+      label: (details.fields && details.fields.label) || '',
+      street: (details.fields && details.fields.street) || '',
+      postalCode: (details.fields && details.fields.postalCode) || '',
+      city: (details.fields && details.fields.city) || '',
+      phone: (details.fields && details.fields.phone) || '',
+      email: (details.fields && details.fields.email) || '',
+      lat:
+        (details.fields &&
+          details.fields.location &&
+          details.fields.location.lat) ||
+        0,
+      lon:
+        (details.fields &&
+          details.fields.location &&
+          details.fields.location.lon) ||
+        0,
+      openingHours: (details.fields && details.fields.openingHours) || [],
+      showOnMapLabel: 'Pokaż na mapie',
+    };
+
+    result[locationDetails.id] = locationDetails;
+
+    return result;
+  }, {});
+};
+
 export const flattenPosts = (items) => {
   return items
     .filter(

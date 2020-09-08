@@ -10,6 +10,7 @@ import {
   flattenPosts,
   getRouteData,
   getServicesDynamicRoutes,
+  flattenContactDetails,
 } from './utils';
 
 export const siteRoot = 'https://www.fotonaprawa.pl';
@@ -38,9 +39,12 @@ export default {
       alerts[0].fields &&
       alerts[0].fields.description;
 
+    const contactDetails = flattenContactDetails(contentfulData.items);
+
     return {
       siteData: {
         ...pl.shared,
+        contactDetails,
         globalInfo,
       },
     };
