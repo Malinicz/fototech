@@ -26,7 +26,7 @@ export const flattenContactDetails = (items) => {
           details.fields.location &&
           details.fields.location.lat) ||
         0,
-      lon:
+      lng:
         (details.fields &&
           details.fields.location &&
           details.fields.location.lon) ||
