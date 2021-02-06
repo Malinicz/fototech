@@ -90,6 +90,10 @@ const AsideCardImage = styled.div`
   border-bottom-left-radius: 7px;
 `;
 
+const BlogImage = styled.img`
+  width: 100%;
+`;
+
 class Blog extends Component {
   render() {
     const {
@@ -104,6 +108,25 @@ class Blog extends Component {
         [BLOCKS.PARAGRAPH]: (node, children) => (
           <ArticleParagraph>{children}</ArticleParagraph>
         ),
+        [BLOCKS.EMBEDDED_ASSET]: (node) => {
+          const imageUrl =
+            node &&
+            node.data &&
+            node.data.target &&
+            node.data.target.fields &&
+            node.data.target.fields.file &&
+            node.data.target.fields.file.url;
+
+          const imageTitle =
+            (node &&
+              node.data &&
+              node.data.target &&
+              node.data.target.fields &&
+              node.data.target.fields.title) ||
+            '';
+
+          return <BlogImage src={imageUrl} alt={imageTitle} />;
+        },
       },
     };
 
