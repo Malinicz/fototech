@@ -8,19 +8,32 @@ import { Layout, Icon } from 'components/ui';
 import { SingleStep, StepperHolder, Heading } from './components';
 import { StepAddresses } from './components/StepAddresses';
 
-import serviceForm from 'assets/service-form.pdf';
+import serviceFormPl from 'assets/service-form.pdf';
+import serviceFormEn from 'assets/service-form-en.pdf';
 
 const ContentSection = styled(Section)`
   justify-content: center;
 `;
 
 class HowToDeliver extends Component {
-  getStepOneButton = (label) => {
+  getStepOneButtons = (label, labelEn) => {
     return (
-      <BlockLink href={serviceForm} target="_blank" rel="noopener noreferrer">
-        {label}
-        <Icon name="download" size={15} marginLeft={5} />
-      </BlockLink>
+      <div>
+        <BlockLink
+          href={serviceFormPl}
+          target="_blank"
+          rel="noopener noreferrer">
+          {label}
+          <Icon name="download" size={12} marginLeft={8} />
+        </BlockLink>
+        <BlockLink
+          href={serviceFormEn}
+          target="_blank"
+          rel="noopener noreferrer">
+          {labelEn}
+          <Icon name="download" size={12} marginLeft={8} />
+        </BlockLink>
+      </div>
     );
   };
 
@@ -38,8 +51,9 @@ class HowToDeliver extends Component {
             <SingleStep
               title={postOfficeSteps[0].title}
               description={postOfficeSteps[0].description}
-              customContent={this.getStepOneButton(
-                postOfficeSteps[0].buttonLabel
+              customContent={this.getStepOneButtons(
+                postOfficeSteps[0].buttonLabel,
+                postOfficeSteps[0].buttonLabelEn
               )}
               stepNumber={1}
             />

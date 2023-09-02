@@ -23,7 +23,8 @@ export default {
       description: [
         'Podaj nam szczegóły dotyczące Twojego sprzętu, wykrytej usterki oraz dane kontaktowe.',
       ],
-      buttonLabel: 'formularz zgłoszeniowy',
+      buttonLabel: 'formularz zgłoszeniowy (PL)',
+      buttonLabelEn: 'formularz zgłoszeniowy (ENG)',
     },
     {
       title: 'Zapakuj swój sprzęt',
